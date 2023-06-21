@@ -7,23 +7,27 @@ using System.Threading.Tasks;
 
 namespace DragRacing
 {
-    class Car : IRaceable
+    abstract class Car : IRaceable
     {
         private double enginePower;
         private double grip;
         private int gearBox;
+
+        private string model;
 
         public Car()
         {
             EnginePower = 1;
             Grip = 1;
             GearBox = 4;
+            model = string.Empty;
         }
-        public Car(double enginePower, double grip, int gearBox)
+        public Car(double enginePower, double grip, int gearBox, string model)
         {
             EnginePower = enginePower;
             Grip = grip;
             GearBox = gearBox;
+            this.model = model;
         }
 
         public double EnginePower
@@ -55,14 +59,11 @@ namespace DragRacing
                 else gearBox = 4;
             }
         }
-        public virtual double Accelerate(double distance)
-        {
-            return 0;
-        }
+        public abstract double Accelerate(double distance);
 
         public override string ToString()
         {
-            return "This is a car.";
+            return model;
         }
 
     }
