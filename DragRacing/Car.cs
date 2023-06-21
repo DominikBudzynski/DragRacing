@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,24 @@ namespace DragRacing
             }
         }
 
+        public double Grip
+        {
+            get { return grip; }
+            set
+            {
+                if (value > 0) grip = value;
+            }
+        }
 
-        public double Accelerate(double distance)
+        public int GearBox
+        {
+            get { return gearBox; }
+            set
+            {
+                if (value > 0 && value < 8) gearBox = value;
+            }
+        }
+        public virtual double Accelerate(double distance)
         {
             return 0;
         }
