@@ -8,6 +8,7 @@ namespace DragRacing
 {
     internal class OffRoadCar : Car
     {
+        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private double height;
         private double suspension;
 

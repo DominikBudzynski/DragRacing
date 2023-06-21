@@ -9,6 +9,7 @@ namespace DragRacing
 {
     abstract class Car : IRaceable
     {
+        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private double enginePower;
         private double grip;
         private int gearBox;

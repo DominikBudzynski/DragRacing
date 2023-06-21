@@ -8,6 +8,7 @@ namespace DragRacing
 {
     class Player
     {
+        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private List<IRaceable> vehiclesList;
         private IRaceable currVehicle;
         private int funds;
@@ -26,25 +27,26 @@ namespace DragRacing
             set { currVehicle = value; }
         }
 
-        public double Funds
+        public int Funds
         {
             get { return funds; }
             set { if (value > 0) funds = value; }
         }
 
-        public double Experience
+        public int Experience
         {
             get { return experience; }
             set { experience = value; }
         }
 
         public void AddCar(Car car)
-        {
+        {       
             vehiclesList.Add(car);
         }
 
         public bool DeleteCar(Car car)
-        {
+        {   
+            //Rozwiazac problem usuwania pierwszego wystapienia elementu
             if (vehiclesList.Remove(car)) return true;
             else return false;
         }

@@ -8,6 +8,7 @@ namespace DragRacing
 {
     class RaceCar : Car
     {
+        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private double turbo;
         private double aerodynamics;
         public RaceCar() : base()
