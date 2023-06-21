@@ -1,0 +1,15 @@
+C:\Users\domin\source\repos\DragRacing\DragRacing\bin\Debug\net6.0\DragRacing.exe
+C:\Users\domin\source\repos\DragRacing\DragRacing\bin\Debug\net6.0\DragRacing.deps.json
+C:\Users\domin\source\repos\DragRacing\DragRacing\bin\Debug\net6.0\DragRacing.runtimeconfig.json
+C:\Users\domin\source\repos\DragRacing\DragRacing\bin\Debug\net6.0\DragRacing.dll
+C:\Users\domin\source\repos\DragRacing\DragRacing\bin\Debug\net6.0\DragRacing.pdb
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.csproj.AssemblyReference.cache
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.AssemblyInfoInputs.cache
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.AssemblyInfo.cs
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.csproj.CoreCompileInputs.cache
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.dll
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\refint\DragRacing.dll
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.pdb
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\DragRacing.genruntimeconfig.cache
+C:\Users\domin\source\repos\DragRacing\DragRacing\obj\Debug\net6.0\ref\DragRacing.dll
