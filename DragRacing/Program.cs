@@ -1,17 +1,26 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Timers;
 
 namespace DragRacing
 {
     class Program
     {
-        static void Main()
+        public static MyTimer t1 = new MyTimer();
+        
+        public static void Main()
         {
-            RaceCar car1 = new RaceCar(150, 2, 5, 10, 300, "Lanos Turbo");
+            t1.startTimer();
 
-            OffRoadCar car2 = new OffRoadCar();
-
-            Console.WriteLine(car1.ToString());
-            Console.WriteLine(car2.ToString());
+            while (true)
+            {               
+                t1.RecordTime();
+                t1.SleepFrame();                
+            }
         }
+
     }
 }
+

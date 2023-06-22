@@ -22,7 +22,7 @@ namespace DragRacing
                      base(enginePower, grip, gearBox, model)
         {
             Height = height;
-            Suspension = suspension;
+            Suspension = suspension;            
         }
 
         public double Height
