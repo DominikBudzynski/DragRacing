@@ -47,7 +47,7 @@ namespace DragRacing
         public bool DeleteCar(Car car)
         {   
             //Rozwiazac problem usuwania pierwszego wystapienia elementu
-            //tak zeby mozna bylo posiadac wiele tych amych aut
+            //tak zeby mozna bylo posiadac wiele tych samych aut
             if (vehiclesList.Remove(car)) return true;
             else return false;
         }
