@@ -1,17 +1,49 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Timers;
 
 namespace DragRacing
 {
     class Program
     {
-        static void Main()
+        public static MyTimer t1 = new MyTimer();
+        public static float frameCounter = 0;
+        public static float frameTime = 0;
+        
+        public static void Main()
         {
-            RaceCar car1 = new RaceCar(150, 2, 5, 10, 300, "Lanos Turbo");
+            //t1.startTimer();
 
-            OffRoadCar car2 = new OffRoadCar();
+            RaceCar car = new RaceCar(70, 10, 1, 30, 20, "Lanos");
+            RaceCar enemy = new RaceCar(100, 15, 1, 35, 20, "Nexia");
 
-            Console.WriteLine(car1.ToString());
-            Console.WriteLine(car2.ToString());
+
+            
+            while (true)
+            {
+                //frameTime = t1.RecordTime();                
+
+                double time1 = car.Accelerate(500);
+                double time2 = enemy.Accelerate(500);
+                
+                if (time1 > time2)
+                {
+                    Console.WriteLine(enemy.ToString() + " wins.\n" + "Time: " + time2);
+                }
+                else
+                {
+                    Console.WriteLine(car.ToString() + " wins.\n" + "Time: " + time1);
+                }
+                
+                Thread.Sleep(1000);
+
+
+                //t1.SleepFrame();                                   
+            }
         }
+
     }
 }
+

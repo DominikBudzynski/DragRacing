@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace DragRacing
 {
     class RaceCar : Car
-    {
-        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
+    {        
         private double turbo;
         private double aerodynamics;
+        Random rnd = new Random();
+
         public RaceCar() : base()
         {
             turbo = 1;
@@ -45,9 +46,27 @@ namespace DragRacing
         }
 
         public override double Accelerate(double distance)
-        {
-            return 0;
-        }
+        {            
+            double time = (0.6 * EnginePower + 0.2 * Grip + 0.4 * Turbo + 0.1 * Aerodynamics);
+            double random = ((double)rnd.Next(90, 110) / 100.0);
+            double result = (distance / ((0.5) * time * random));
+            
+            //DEBUG
+            /*
+            Console.WriteLine("Time = " + time);
+            Console.WriteLine("Random = " + random);
+            Console.WriteLine("Distance = " + distance);
+            Console.WriteLine("Result = " + result);
+            Console.WriteLine();
+            Console.WriteLine("Time * Random = " + (time * random));
+            Console.WriteLine("1/2 * Time * Random = " + ((0.5) * time * random));
+            Console.WriteLine("Distance/result = " + (distance/ ((0.5)* time * random)));
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            */
+            return result;
+        }       
 
     }
 }
