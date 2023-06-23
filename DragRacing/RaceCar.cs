@@ -51,6 +51,7 @@ namespace DragRacing
             double random = ((double)rnd.Next(90, 110) / 100.0);
             double result = (distance / ((0.5) * time * random));
             
+            //DEBUG
             /*
             Console.WriteLine("Time = " + time);
             Console.WriteLine("Random = " + random);
