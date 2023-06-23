@@ -10,6 +10,11 @@ namespace DragRacing.States
     {
         public MainShopState(Game game) : base(game) { }
 
+        public override void UpdateGame(ConsoleKey key)
+        {
+            
+        }
+
         public override void EnterButton()
         {
             ;
