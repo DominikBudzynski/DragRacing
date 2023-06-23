@@ -14,36 +14,27 @@ namespace DragRacing
         
         public static void Main()
         {
-            //t1.startTimer();
-
             RaceCar car = new RaceCar(70, 10, 1, 30, 20, "Lanos");
             RaceCar enemy = new RaceCar(100, 15, 1, 35, 20, "Nexia");
 
+            Stage stage1 = new Stage(); ;
+                        
 
-            
-            while (true)
+            double time1 = car.Accelerate(500);
+            double time2 = enemy.Accelerate(500);
+               
+            if (time1 > time2)
             {
-                //frameTime = t1.RecordTime();                
-
-                double time1 = car.Accelerate(500);
-                double time2 = enemy.Accelerate(500);
-                
-                if (time1 > time2)
-                {
-                    Console.WriteLine(enemy.ToString() + " wins.\n" + "Time: " + time2);
-                }
-                else
-                {
-                    Console.WriteLine(car.ToString() + " wins.\n" + "Time: " + time1);
-                }
-                
-                Thread.Sleep(1000);
-
-
-                //t1.SleepFrame();                                   
+                Console.WriteLine(enemy.ToString() + " wins.\n" + "Time: " + time2);
             }
+            else
+            {
+                Console.WriteLine(car.ToString() + " wins.\n" + "Time: " + time1);
+            }
+                
+            Thread.Sleep(1000);                                 
         }
-
     }
 }
+
 
