@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,18 +43,21 @@ namespace DragRacing
             return 0;
         }
 
-        public void SleepFrame()
+        public bool SleepFrame()
         {
             if (isStarted)
             {
                 if (elapsedTime < 166000)
                 {
-                    Thread.Sleep(8 - (int)elapsedTime/1000);
+                    //Thread.Sleep(8 - (int)elapsedTime/1000);
+                    Console.WriteLine(16 - (int)elapsedTime / 1000);
+                    return true;
                     //1ms - 1000
                     //f = 10E7
                     //60FPS - frame lasts 16.6 ms
                 }
-            }            
+            }
+            return false;
         }
 
     }

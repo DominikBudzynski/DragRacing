@@ -13,14 +13,13 @@ namespace DragRacing
         private double enginePower;
         private double grip;
         private int gearBox;
-
         private string model;
 
         public Car()
         {
             EnginePower = 1;
             Grip = 1;
-            GearBox = 4;
+            GearBox = 1;
             model = string.Empty;
         }
         public Car(double enginePower, double grip, int gearBox, string model)
@@ -37,7 +36,7 @@ namespace DragRacing
             set
             {
                 if (value > 0) enginePower = value;
-                else enginePower = 1;   //DO KOREKTY
+                else enginePower = 1;
             }
         }
 
@@ -57,7 +56,7 @@ namespace DragRacing
             set
             {
                 if (value > 0 && value < 8) gearBox = value;
-                else gearBox = 4;
+                else gearBox = 1;
             }
         }
         public abstract double Accelerate(double distance);
