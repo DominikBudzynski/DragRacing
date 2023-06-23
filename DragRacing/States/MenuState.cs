@@ -4,17 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.Nowy_folder
+namespace DragRacing.States
 {
-    class StageChoiceState : GameState
+    class MenuState : GameState
     {
-        public StageChoiceState(Game game) : base(game) { }
+
+        public MenuState(Game game) : base(game) { }
+
+        public override void UpdateGame(ConsoleKey key)
+        {
+
+        }
 
         public override void EnterButton()
         {
             ;
         }
-        
+
         public override void ESCButton()
         {
             ;
@@ -22,17 +28,17 @@ namespace DragRacing.Nowy_folder
 
         public override void DigitOne()
         {
-            ;
+            parentApp.ChangeState(new SeeProfileState(parentApp));
         }
 
         public override void DigitTwo()
         {
-            ;
+            parentApp.ChangeState(new StageChoiceState(parentApp));
         }
 
         public override void DigitThree()
         {
-            ;
+            parentApp.ChangeState(new MainShopState(parentApp));
         }
 
         public override void DigitFour()

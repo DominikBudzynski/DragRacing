@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing
+namespace DragRacing.Cars
 {
     internal class OffRoadCar : Car
     {
@@ -18,11 +18,11 @@ namespace DragRacing
             suspension = 0;
         }
 
-        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model) : 
+        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model) :
                      base(enginePower, grip, gearBox, model)
         {
             Height = height;
-            Suspension = suspension;            
+            Suspension = suspension;
         }
 
         public double Height
@@ -36,7 +36,7 @@ namespace DragRacing
 
         public double Suspension
         {
-            get { return  suspension; }
+            get { return suspension; }
             set
             {
                 if (value > 0) suspension = value;

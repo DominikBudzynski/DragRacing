@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing
+namespace DragRacing.States
 {
     abstract class GameState
     {
@@ -15,6 +15,7 @@ namespace DragRacing
             this.parentApp = parentApp;
         }
 
+        public abstract void UpdateGame(ConsoleKey key);
         public abstract void EnterButton();
         public abstract void ESCButton();
         public abstract void DigitOne();

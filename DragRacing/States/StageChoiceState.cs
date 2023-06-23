@@ -4,17 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.Nowy_folder
+namespace DragRacing.States
 {
-    internal class SeeProfileState : GameState 
+    class StageChoiceState : GameState
     {
-        public SeeProfileState(Game game) : base(game) { }
-        
+        public StageChoiceState(Game game) : base(game) { }
+
+        public override void UpdateGame(ConsoleKey key)
+        {
+
+        }
+
         public override void EnterButton()
         {
             ;
         }
-
+        
         public override void ESCButton()
         {
             ;

@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DragRacing.Car;
 
 namespace DragRacing
 {
     class Player
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        private List<IRaceable> vehiclesList;
-        private IRaceable currVehicle;
+        private List<Cars.IRaceable> vehiclesList;
+        private Cars.IRaceable currVehicle;
         private int funds;
         private int experience;
 
         public Player()
         {
-            vehiclesList = new List<IRaceable>();
+            vehiclesList = new List<Cars.IRaceable>();
             funds = 10000;
             experience = 0;
         }
 
-        public IRaceable CurrentVehicle
+        public Cars.IRaceable CurrentVehicle
         {
             get { return currVehicle; }
             set { currVehicle = value; }
@@ -39,12 +40,12 @@ namespace DragRacing
             set { experience = value; }
         }
 
-        public void AddCar(Car car)
+        public void AddCar(Cars.Car car)
         {       
             vehiclesList.Add(car);
         }
 
-        public bool DeleteCar(Car car)
+        public bool DeleteCar(Cars.Car car)
         {   
             //Rozwiazac problem usuwania pierwszego wystapienia elementu
             //tak zeby mozna bylo posiadac wiele tych samych aut

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Timers;
+using DragRacing.Cars;
 
 namespace DragRacing
 {
@@ -14,8 +15,8 @@ namespace DragRacing
         
         public static void Main()
         {
-            RaceCar car = new RaceCar(70, 10, 1, 30, 20, "Lanos");
-            RaceCar enemy = new RaceCar(100, 15, 1, 35, 20, "Nexia");
+            Cars.RaceCar car = new Cars.RaceCar(70, 10, 1, 30, 20, "Lanos");
+            Cars.RaceCar enemy = new Cars.RaceCar(100, 15, 1, 35, 20, "Nexia");
 
             Stage stage1 = new Stage(); ;
                         

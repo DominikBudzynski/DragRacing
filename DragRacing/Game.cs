@@ -8,15 +8,21 @@ namespace DragRacing
 {
     class Game
     {
-        private GameState currentState;
+        private States.GameState currentState;
+
         public Game()
         {
-            currentState = new MenuState(this);
+            currentState = new States.MenuState(this);
         }
 
-        public void ChangeState(GameState state)
+        public void ChangeState(States.GameState state)
         {
             currentState = state;
+        }
+
+        public void UpdateGame(ConsoleKey key)
+        {
+            currentState.UpdateGame(key);
         }
     }
 }

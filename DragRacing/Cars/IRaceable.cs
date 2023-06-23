@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing
+namespace DragRacing.Cars
 {
     interface IRaceable
     {
