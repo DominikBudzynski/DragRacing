@@ -12,12 +12,13 @@ namespace DragRacing
         public static void Main()
         { 
             Game game = new Game();
-            
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-            Console.Clear();
 
-            game.UpdateGame(keyInfo.Key);
-            Thread.Sleep(1000);                                 
+            while (true)
+            {
+                Console.Clear();
+                game.UpdateGame();
+                //Thread.Sleep(1000);
+            }
         }
     }
 }

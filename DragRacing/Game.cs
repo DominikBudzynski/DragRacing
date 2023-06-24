@@ -20,10 +20,9 @@ namespace DragRacing
             currentState = state;
         }
 
-        public void UpdateGame(ConsoleKey key)
-        {
-            Console.WriteLine("Wybierz co chcesz: ");
-            currentState.UpdateGame(key);
+        public void UpdateGame()
+        {            
+            currentState.UpdateGame();
         }
     }
 }

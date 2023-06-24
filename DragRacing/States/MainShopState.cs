@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 namespace DragRacing.States
 {
     internal class MainShopState : GameState
-    {
+    {        
         public MainShopState(Game game) : base(game) { }
 
-        public override void UpdateGame(ConsoleKey key)
+        public override void UpdateGame()
         {
-            
+            textInterface.ShopPrompt();
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            if (keyInfo.Key == ConsoleKey.D1) DigitOne();
+            else if (keyInfo.Key == ConsoleKey.D2) DigitTwo();
+            else if (keyInfo.Key == ConsoleKey.D3) DigitThree();
+            else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
+            else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
+            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
 
         public override void EnterButton()
@@ -22,22 +30,19 @@ namespace DragRacing.States
 
         public override void ESCButton()
         {
-            ;
+            parentApp.ChangeState(new MenuState(parentApp));
         }
 
         public override void DigitOne()
-        {
-            parentApp.ChangeState(new SeeProfileState(parentApp));
+        {            
         }
 
         public override void DigitTwo()
-        {
-            parentApp.ChangeState(new StageChoiceState(parentApp));
+        {            
         }
 
         public override void DigitThree()
-        {
-            parentApp.ChangeState(new MainShopState(parentApp));
+        {            
         }
 
         public override void DigitFour()

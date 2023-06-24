@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace DragRacing.UserInterface
 {
-    class UsrInterface
+    class TextInterface
     {
+        public static ConsoleKeyInfo ReadKey()
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            Console.Clear();
+            return keyInfo;
+        }
         public void MenuPrompt()
         {
             Console.Clear();
             Console.WriteLine(
-                "Main menu\n" +
+                "\nMain menu\n" +
                 "Options to choose:\n" +
                 "1.See player profile\n" +
                 "2.Race stage choice\n" +
-                "3.Shop\n"
+                "3.Shop\n" +
+                "\nESC to exit\n"
                 );
         }
 
@@ -25,7 +32,7 @@ namespace DragRacing.UserInterface
             Console.Clear();
             Console.WriteLine(
                 "This is your profile\n" +
-                "Press ESC to back to main menu\n"
+                "Press ESC to back to main menu"
                 );
         }
 
@@ -34,7 +41,16 @@ namespace DragRacing.UserInterface
             Console.Clear();
             Console.WriteLine(
                 "Here you can choose racing stage\n" +
-                "Press ESC to back to main menu\n"
+                "Press ESC to back to main menu"
+                );
+        }
+
+        public void ShopPrompt()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "You have entered shop\n" +
+                "Press ESC to back to main menu"
                 );
         }
     }
