@@ -22,6 +22,7 @@ namespace DragRacing
 
         public void UpdateGame(ConsoleKey key)
         {
+            Console.WriteLine("Wybierz co chcesz: ");
             currentState.UpdateGame(key);
         }
     }

@@ -13,7 +13,7 @@ namespace DragRacing.States
 
         public override void UpdateGame(ConsoleKey key)
         {
-
+            
         }
 
         public override void EnterButton()
@@ -29,6 +29,7 @@ namespace DragRacing.States
         public override void DigitOne()
         {
             parentApp.ChangeState(new SeeProfileState(parentApp));
+
         }
 
         public override void DigitTwo()
