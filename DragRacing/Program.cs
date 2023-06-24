@@ -11,7 +11,7 @@ namespace DragRacing
     {        
         public static void Main()
         { 
-            Game game = new Game();
+            Game.Game game = new Game.Game();
 
             while (true)
             {

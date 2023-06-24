@@ -5,20 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.States
+namespace DragRacing.States.ShopStates
 {
-    abstract class GameState
+    abstract class ShopState
     {
-        protected Game parentApp;
+        protected Game.Game parentApp;
         protected TextInterface textInterface;
 
-        public GameState(Game parentApp)
+        public ShopState(Game.Game parentApp)
         {
             this.parentApp = parentApp;
             textInterface = new TextInterface();
         }
 
-        public abstract void UpdateGame();
+        public abstract void UpdateShop();
         public abstract void EnterButton();
         public abstract void ESCButton();
         public abstract void DigitOne();

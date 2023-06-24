@@ -5,24 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using DragRacing.Cars;
 
-namespace DragRacing
+namespace DragRacing.Game
 {
     class Player
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        private List<Cars.IRaceable> vehiclesList;
-        private Cars.IRaceable currVehicle;
+        private List<IRaceable> vehiclesList;
+        private IRaceable currVehicle;
         private int funds;
         private int experience;
 
-        public Player()
+        public Player(IRaceable startingCar)
         {
-            vehiclesList = new List<Cars.IRaceable>();
+            vehiclesList = new List<IRaceable>();
+            currVehicle = startingCar;
             funds = 10000;
             experience = 0;
         }
 
-        public Cars.IRaceable CurrentVehicle
+        public IRaceable CurrentVehicle
         {
             get { return currVehicle; }
             set { currVehicle = value; }
@@ -40,13 +41,13 @@ namespace DragRacing
             set { experience = value; }
         }
 
-        public void AddCar(Cars.Car car)
-        {       
+        public void AddCar(Car car)
+        {
             vehiclesList.Add(car);
         }
 
-        public bool DeleteCar(Cars.Car car)
-        {   
+        public bool DeleteCar(Car car)
+        {
             //Rozwiazac problem usuwania pierwszego wystapienia elementu
             //tak zeby mozna bylo posiadac wiele tych samych aut
             if (vehiclesList.Remove(car)) return true;

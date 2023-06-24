@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.States
+namespace DragRacing.States.GameStates
 {
-    internal class MainShopState : GameState
-    {        
-        public MainShopState(Game game) : base(game) { }
+    internal class SeeProfileState : GameState
+    {
+        public SeeProfileState(Game.Game game) : base(game) { }
 
         public override void UpdateGame()
         {
-            textInterface.ShopPrompt();
+            textInterface.ProfilePrompt();
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
             if (keyInfo.Key == ConsoleKey.D1) DigitOne();
@@ -34,15 +34,18 @@ namespace DragRacing.States
         }
 
         public override void DigitOne()
-        {            
+        {
+            ;
         }
 
         public override void DigitTwo()
-        {            
+        {
+            ;
         }
 
         public override void DigitThree()
-        {            
+        {
+            ;
         }
 
         public override void DigitFour()

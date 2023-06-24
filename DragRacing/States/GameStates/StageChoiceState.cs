@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DragRacing.Game;
 
-namespace DragRacing.States
+namespace DragRacing.States.GameStates
 {
-    class MenuState : GameState
+    class StageChoiceState : GameState
     {
-
-        public MenuState(Game game) : base(game) { }
+        public StageChoiceState(Game.Game game) : base(game) { }
 
         public override void UpdateGame()
         {
-            textInterface.MenuPrompt();
+            textInterface.StagePrompt();
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
             if (keyInfo.Key == ConsoleKey.D1) DigitOne();
@@ -24,27 +24,6 @@ namespace DragRacing.States
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
 
-
-        public override void DigitOne()
-        {
-            parentApp.ChangeState(new SeeProfileState(parentApp));
-        }
-
-        public override void DigitTwo()
-        {
-            parentApp.ChangeState(new StageChoiceState(parentApp));
-        }
-
-        public override void DigitThree()
-        {
-            parentApp.ChangeState(new MainShopState(parentApp));
-        }
-
-        public override void DigitFour()
-        {
-            ;
-        }
-
         public override void EnterButton()
         {
             ;
@@ -52,7 +31,27 @@ namespace DragRacing.States
 
         public override void ESCButton()
         {
-            Environment.Exit(1);
+            parentApp.ChangeState(new MenuState(parentApp));
+        }
+
+        public override void DigitOne()
+        {
+            ;
+        }
+
+        public override void DigitTwo()
+        {
+            ;
+        }
+
+        public override void DigitThree()
+        {
+            ;
+        }
+
+        public override void DigitFour()
+        {
+            ;
         }
     }
 }
