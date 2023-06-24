@@ -22,7 +22,7 @@ namespace DragRacing.Cars
             GearBox = 1;
             model = string.Empty;
         }
-        public Car(double enginePower, double grip, int gearBox, string model)
+        public Car(double enginePower, double grip, string model)
         {
             EnginePower = enginePower;
             Grip = grip;
