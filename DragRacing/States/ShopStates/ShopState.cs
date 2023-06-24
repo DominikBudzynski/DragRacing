@@ -9,13 +9,13 @@ namespace DragRacing.States.ShopStates
 {
     abstract class ShopState
     {
-        protected Game.Game parentApp;
-        protected TextInterface textInterface;
+        protected States.GameStates.MainShopState parentApp;
+        protected ShopInterface textInterface;
 
-        public ShopState(Game.Game parentApp)
+        public ShopState(States.GameStates.MainShopState parentApp)
         {
             this.parentApp = parentApp;
-            textInterface = new TextInterface();
+            textInterface = new ShopInterface();
         }
 
         public abstract void UpdateShop();
@@ -25,6 +25,7 @@ namespace DragRacing.States.ShopStates
         public abstract void DigitTwo();
         public abstract void DigitThree();
         public abstract void DigitFour();
+        public abstract void DigitFive();
 
     }
 }

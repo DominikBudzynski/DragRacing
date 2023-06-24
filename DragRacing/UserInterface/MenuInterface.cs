@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DragRacing.UserInterface
 {
-    class TextInterface
+    class MenuInterface
     {
         public static ConsoleKeyInfo ReadKey()
         {
@@ -14,6 +14,7 @@ namespace DragRacing.UserInterface
             Console.Clear();
             return keyInfo;
         }
+
         public void MenuPrompt()
         {
             Console.Clear();
@@ -49,9 +50,15 @@ namespace DragRacing.UserInterface
         {
             Console.Clear();
             Console.WriteLine(
-                "You have entered shop\n" +
+                "You have entered shop.\n" +
+                "1.Car dealer\n" + 
+                "2.Engine upgrade\n" +
+                "3.Tire upgrade\n" +
+                "4.Turbocharger upgrade\n" +
+                "5.Suspension upgrade\n" +
                 "Press ESC to back to main menu"
                 );
         }
+        
     }
 }

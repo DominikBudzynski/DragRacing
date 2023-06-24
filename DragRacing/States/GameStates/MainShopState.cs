@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragRacing.States.ShopStates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace DragRacing.States.GameStates
 {
     internal class MainShopState : GameState
     {
+        private ShopState shopState;
+
         public MainShopState(Game.Game game) : base(game) { }
 
         public override void UpdateGame()
@@ -35,6 +38,7 @@ namespace DragRacing.States.GameStates
 
         public override void DigitOne()
         {
+            shopState = new CarDealer(this);
         }
 
         public override void DigitTwo()

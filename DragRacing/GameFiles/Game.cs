@@ -10,8 +10,7 @@ namespace DragRacing.Game
 {
     class Game
     {
-        private GameState currentState;
-        private ShopState shopState;
+        private GameState currentState;        
 
         public Game()
         {
@@ -23,10 +22,12 @@ namespace DragRacing.Game
             currentState = state;
         }
 
+        /*
         public void ChangeShop(ShopState newShop)
         {
             shopState = newShop;
         }
+        */
 
         public void UpdateGame()
         {
