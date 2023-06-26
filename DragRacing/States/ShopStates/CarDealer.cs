@@ -10,7 +10,7 @@ namespace DragRacing.States.ShopStates
 {
     class CarDealer : GameState
     {
-        private int hihglightElement = 1;
+        private int highlightElement = 1;
         private List<IRaceable> cars;        
 
         public CarDealer(Game.Game game) : base(game)
@@ -26,7 +26,7 @@ namespace DragRacing.States.ShopStates
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
             if (keyInfo.Key == ConsoleKey.DownArrow) UpArrow();
-            else if (keyInfo.Key == ConsoleKey.UpArrow) DownArrow();  
+            else if (keyInfo.Key == ConsoleKey.UpArrow) DownArrow();
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
             else if (keyInfo.Key == ConsoleKey.S) BackspaceButton();
@@ -34,7 +34,7 @@ namespace DragRacing.States.ShopStates
 
         public override void StatePrompt()
         {
-            textInterface.DealerPrompt(cars, hihglightElement);           
+            textInterface.DealerPrompt(cars, highlightElement);           
         }
 
         public bool SellTo(Game.Player customer, IRaceable car)
@@ -71,24 +71,23 @@ namespace DragRacing.States.ShopStates
 
         public void UpArrow()
         {
-            if (hihglightElement >= cars.Count) ;
-            else hihglightElement++;
+            if (highlightElement < cars.Count) highlightElement++;
         }
 
         public void DownArrow()
         {
-            if (hihglightElement == 1) ;
-            else hihglightElement--;
+            if (highlightElement == 1) ;
+            else highlightElement--;
         }
 
         public void BackspaceButton()
         {
             //parentApp.HStage.GetPlayer.PlayerVehicles[hihglightElement-1]
-            BuyFrom(parentApp.HStage.GetPlayer, cars[hihglightElement - 1]);
+            BuyFrom(parentApp.HStage.GetPlayer, cars[highlightElement - 1]);
         }
         public override void EnterButton()
         {
-            SellTo(parentApp.HStage.GetPlayer, cars[hihglightElement - 1]);
+            SellTo(parentApp.HStage.GetPlayer, cars[highlightElement - 1]);
         }     
         public override void ESCButton()
         {

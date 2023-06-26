@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DragRacing.States
 {
     abstract class GameState
-    {
+    {        
         protected Game.Game parentApp;
         protected TextInterface textInterface;
 
@@ -30,7 +30,7 @@ namespace DragRacing.States
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
-        public abstract void StatePrompt();
+        public abstract void StatePrompt();          
         public abstract void EnterButton();
         public abstract void ESCButton();
         public abstract void DigitOne();

@@ -102,6 +102,7 @@ namespace DragRacing.UserInterface
 
         public void EnginePrompt(Player player)
          {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to engine upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() + 
@@ -110,6 +111,7 @@ namespace DragRacing.UserInterface
                 "3.Professional engine\n" +
                 "4.Pro engine\n"
                 );
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void TirePrompt(Player player)
@@ -128,6 +130,7 @@ namespace DragRacing.UserInterface
 
         public void SuspensionPrompt(Player player)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to suspension upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
@@ -136,6 +139,7 @@ namespace DragRacing.UserInterface
                 "3.Professional suspension\n" +
                 "4.Pro suspension\n"
                 );
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
