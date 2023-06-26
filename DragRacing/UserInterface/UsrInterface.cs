@@ -83,6 +83,7 @@ namespace DragRacing.UserInterface
 
         public void TirePrompt()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to tires upgrade\n" +
                 "1.Stock tires\n" +
@@ -90,6 +91,7 @@ namespace DragRacing.UserInterface
                 "3.Professional tires\n" +
                 "4.Pro tires\n"
                 );
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void SuspensionPrompt()

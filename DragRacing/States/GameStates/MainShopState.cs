@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragRacing.States.ShopStates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,9 @@ namespace DragRacing.States.GameStates
     {
         public MainShopState(Game game) : base(game) { }
 
-        public override void UpdateGame()
+        public override void StatePrompt()
         {
             textInterface.ShopPrompt();
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-            if (keyInfo.Key == ConsoleKey.D1) DigitOne();
-            else if (keyInfo.Key == ConsoleKey.D2) DigitTwo();
-            else if (keyInfo.Key == ConsoleKey.D3) DigitThree();
-            else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
-            else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
-            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
 
         public override void EnterButton()
@@ -35,20 +28,22 @@ namespace DragRacing.States.GameStates
 
         public override void DigitOne()
         {
+            parentApp.ChangeState(new CarDealer(parentApp));
         }
 
         public override void DigitTwo()
         {
+            parentApp.ChangeState(new EngineShop(parentApp));
         }
 
         public override void DigitThree()
         {
-            parentApp.ChangeState(new ShopStates.TireShop(parentApp));
+            parentApp.ChangeState(new TireShop(parentApp));
         }
 
         public override void DigitFour()
         {
-            ;
+            parentApp.ChangeState(new SuspensionShop(parentApp));
         }
     }
 }

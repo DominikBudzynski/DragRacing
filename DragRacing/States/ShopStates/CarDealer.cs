@@ -10,17 +10,9 @@ namespace DragRacing.States.ShopStates
     {
         public CarDealer(Game game) : base(game) { }
 
-        public override void UpdateGame()
+        public override void StatePrompt()
         {
-            textInterface.TirePrompt();
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-            if (keyInfo.Key == ConsoleKey.D1) DigitOne();
-            else if (keyInfo.Key == ConsoleKey.D2) DigitTwo();
-            else if (keyInfo.Key == ConsoleKey.D3) DigitThree();
-            else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
-            else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
-            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
+            textInterface.DealerPrompt();
         }
 
         public override void EnterButton()
