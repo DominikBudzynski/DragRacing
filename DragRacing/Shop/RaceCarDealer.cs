@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace DragRacing.Shop
 {
-    class RaceCarDealer : IShop
+    class RaceCarDealer : ShopState
     {
         private readonly List<RaceCar> storedCars;
         private readonly List<int> carsPrize;
 
-        public RaceCarDealer()
+        public RaceCarDealer(Shop.ShopState parrentState)
         {
+            
+
             storedCars = new List<RaceCar>();
             carsPrize = new List<int>();
             storedCars.Add(new RaceCar(70, 10, 30, 20, "AUTO1"));
@@ -23,19 +25,20 @@ namespace DragRacing.Shop
             storedCars.Add(new RaceCar(130, 22, 42, 44, "AUTO4"));            
         }
 
-        public double SellTo(Player player)
+        public override double SellTo(Player player)
         {
             if (player == null)
                 return 0;
             else
             {
+                //dodac sprawdzanie czy player ma odpowiednia ilosc pieniedzy
                 player.AddCar(storedCars[0]);
                 player.Funds -= carsPrize[0];
                 return player.Funds;
             }                            
         }
 
-        public double BuyFrom(Player player)
+        public override double BuyFrom(Player player)
         {
             if (player == null) return 0;
             else

@@ -8,7 +8,7 @@ namespace DragRacing
 {
     class Game
     {
-        private States.GameState currentState;
+        private States.GameState currentState;        
 
         public Game()
         {
