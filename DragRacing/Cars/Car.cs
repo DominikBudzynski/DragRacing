@@ -10,7 +10,7 @@ namespace DragRacing.Cars
     abstract class Car : IRaceable
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        protected double enginePower, engineBonus;        
+        protected double enginePower, engineBonus;
         protected double grip, gripBonus;
         protected int gearBox;
         protected string model;

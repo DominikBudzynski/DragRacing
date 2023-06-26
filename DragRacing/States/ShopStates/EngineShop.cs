@@ -10,8 +10,7 @@ using System.Xml.XPath;
 namespace DragRacing.States.ShopStates
 {
     class EngineShop : GameState, IShop
-    {
-        private int highlightElement = 1;
+    {        
         private List<int> engineUpgrades;
         public EngineShop(Game.Game game) : base(game)
         {
@@ -29,7 +28,7 @@ namespace DragRacing.States.ShopStates
       
         public double SellTo(Player player, int value)
         {
-            player.
+            
             return 0;
         }
 

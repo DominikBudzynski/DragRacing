@@ -11,7 +11,7 @@ namespace DragRacing.Game
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private List<IRaceable> vehiclesList;
-        private IRaceable currVehicle;
+        private IRaceable currVehicle;        
         private int funds;
         private int experience;
 

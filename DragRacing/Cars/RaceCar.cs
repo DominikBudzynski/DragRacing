@@ -26,6 +26,14 @@ namespace DragRacing.Cars
             this.aerodynamics = aerodynamics;
         }
 
+        public override void UpdateBonuses(double engineBonus, double gripBonus, double turboBonus, double aeroBonus)
+        {
+            this.engineBonus = engineBonus;
+            this.gripBonus = gripBonus;
+            this.turboBonus = turboBonus;
+            this.aeroBonus = aeroBonus;
+        }
+
         public double Turbo
         {
             get { return (turbo + turboBonus); }
