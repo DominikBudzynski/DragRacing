@@ -12,7 +12,10 @@ namespace DragRacing.Game
         private List<Stage> stages;
         private Player player;
 
-        public StageHandler() { }
+        public StageHandler()
+        {
+            player = new Player();
+        }
 
         public bool EvaluateRace(IRaceable player, IRaceable enemyVehicle)
         {

@@ -53,5 +53,7 @@ namespace DragRacing.Game
             if (vehiclesList.Remove(car)) return true;
             else return false;
         }
+
+        public List<IRaceable> PlayerVehicles { get { return vehiclesList; } }
     }
 }

@@ -29,13 +29,18 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void ProfilePrompt()
+        public void ProfilePrompt(List<IRaceable> args)
         {
             Console.Clear();
             Console.WriteLine(
                 "This is your profile\n" +
+                "Owned cars: \n" +
                 "Press ESC to back to main menu"
                 );
+            foreach (IRaceable raceable in args)
+            {
+                Console.Write(raceable.ToString());
+            }
         }
 
         public void StagePrompt()
