@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,17 +24,8 @@ namespace DragRacing.States
         public void EnterShop()
         {
             /*zmienia stan na wyswietlanie sklepu*/
+            //currentShop.EnterShop();
         }
-
-
-
-
-
-
-
-
-
-
 
 
         //part resposnible for game state
@@ -49,6 +41,7 @@ namespace DragRacing.States
             else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
+            
         }
 
         public override void EnterButton()
@@ -70,11 +63,22 @@ namespace DragRacing.States
         }
 
         public override void DigitTwo()
-        {            
+        {
+            /*
+             * Wejscie do sklepu
+             * Wyswietlenie czesci
+             * Zbieranie inputu
+             * Upgrade - logika
+             * Wyswietlanie dalej/ESC to wyjscie
+             */
         }
 
         public override void DigitThree()
-        {            
+        {
+            Console.Clear();
+            Console.Write("DUPA");
+            ChangeShop(new TireShop(this));
+            currentShop.EnterShop();
         }
 
         public override void DigitFour()

@@ -50,6 +50,11 @@ namespace DragRacing.UserInterface
             Console.Clear();
             Console.WriteLine(
                 "You have entered shop\n" +
+                "1.Car Dealer\n" +
+                "2.Engine Shop\n" +
+                "3.Tire Shop\n" + 
+                "4.Suspension Shop\n" +
+                "COS DALEJ\n" +
                 "Press ESC to back to main menu"
                 );
         }

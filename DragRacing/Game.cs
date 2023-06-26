@@ -22,7 +22,7 @@ namespace DragRacing
 
         public void UpdateGame()
         {            
-            currentState.UpdateGame();
+            currentState.UpdateGame();            
         }
     }
 }

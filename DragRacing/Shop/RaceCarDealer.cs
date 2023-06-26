@@ -24,6 +24,8 @@ namespace DragRacing.Shop
             storedCars.Add(new RaceCar(130, 22, 42, 44, "AUTO4"));
         }
 
+        public override void EnterShop() { }
+
         public override double SellTo(Player player)
         {
             if (player == null)
@@ -48,7 +50,7 @@ namespace DragRacing.Shop
             return 0;
         }
 
-        public override void UpdateGame() { }
+        
         public override void EnterButton() { }
         public override void ESCButton() { }
         public override void DigitOne() { } 

@@ -11,19 +11,28 @@ namespace DragRacing.Shop
     {
         //parentShop musi byc typu MainShopState
         protected States.MainShopState parentShop;
-        protected TextInterface textInterface;
+        protected ShopInterface shopInterface;
 
         public ShopState(States.MainShopState parentShop)
         {
             this.parentShop = parentShop;
-            textInterface = new TextInterface();
+            shopInterface = new ShopInterface();
         }
 
         public abstract double SellTo(Player player);
         public abstract double BuyFrom(Player player);
+        
+        public abstract void EnterShop();
+
+
+
+        //Wybor sklepu w MainShopState
+        //Wybor czesci/auta w kazdej poszczegolnej klasie 
+        //EnterShop -> wyswietalanie prompta i wczytywanie klawisza
+
 
         //zadeklarowac metody odpowiadajace za zmiane stanu np. DigitOne()
-        public abstract void UpdateGame();
+        //public abstract void UpdateGame();
         public abstract void EnterButton();
         public abstract void ESCButton();
         public abstract void DigitOne();
