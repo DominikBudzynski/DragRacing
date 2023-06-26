@@ -12,7 +12,7 @@ namespace DragRacing
 
         public Game()
         {
-            currentState = new States.MenuState(this);
+            currentState = new States.GameStates.MenuState(this);
         }
 
         public void ChangeState(States.GameState state)

@@ -1,18 +1,19 @@
-﻿using System;
+﻿using DragRacing.UserInterface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.States
+namespace DragRacing.States.ShopStates
 {
-    internal class MainShopState : GameState
-    {        
-        public MainShopState(Game game) : base(game) { }
+    class SuspensionShop : GameState
+    {
+        public SuspensionShop(Game game) : base(game) { }
 
         public override void UpdateGame()
         {
-            textInterface.ShopPrompt();
+            textInterface.TirePrompt();
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
             if (keyInfo.Key == ConsoleKey.D1) DigitOne();
@@ -30,19 +31,19 @@ namespace DragRacing.States
 
         public override void ESCButton()
         {
-            parentApp.ChangeState(new MenuState(parentApp));
+            parentApp.ChangeState(new GameStates.MainShopState(parentApp));
         }
 
         public override void DigitOne()
-        {            
+        {
         }
 
         public override void DigitTwo()
-        {            
+        {
         }
 
         public override void DigitThree()
-        {            
+        {
         }
 
         public override void DigitFour()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.States
+namespace DragRacing.States.GameStates
 {
     class StageChoiceState : GameState
     {
@@ -27,7 +27,7 @@ namespace DragRacing.States
         {
             ;
         }
-        
+
         public override void ESCButton()
         {
             parentApp.ChangeState(new MenuState(parentApp));
