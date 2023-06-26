@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace DragRacing.States
         public MainShopState(Game game) : base(game) { }        
 
         //part responsible for shop state
+
+        //public Game ParentApp { get { return parentApp; } }
 
         public void ChangeShop(Shop.ShopState shop)
         {
@@ -41,6 +44,8 @@ namespace DragRacing.States
             else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
+
+            //currentShop.UpdateShop();
             
         }
 
@@ -75,10 +80,14 @@ namespace DragRacing.States
 
         public override void DigitThree()
         {
+            /*
             Console.Clear();
             Console.Write("DUPA");
-            ChangeShop(new TireShop(this));
+            ChangeShop(new TireShop(this, parentApp));            
             currentShop.EnterShop();
+            currentShop.UpdateShop();
+            */
+            parentApp.ChangeState(new TireShopNew(parentApp));
         }
 
         public override void DigitFour()

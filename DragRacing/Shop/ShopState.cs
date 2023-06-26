@@ -12,17 +12,21 @@ namespace DragRacing.Shop
         //parentShop musi byc typu MainShopState
         protected States.MainShopState parentShop;
         protected ShopInterface shopInterface;
-
-        public ShopState(States.MainShopState parentShop)
+        protected Game upperNestedState;
+        
+        public ShopState(States.MainShopState parentShop, Game upperState)
         {
+
             this.parentShop = parentShop;
             shopInterface = new ShopInterface();
+            upperNestedState = upperState;
         }
 
         public abstract double SellTo(Player player);
         public abstract double BuyFrom(Player player);
         
         public abstract void EnterShop();
+        public abstract void UpdateShop();
 
 
 

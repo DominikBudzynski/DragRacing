@@ -11,6 +11,7 @@ namespace DragRacing.States
     {
         protected Game parentApp;
         protected TextInterface textInterface;
+        protected ShopInterface shopInterface;
 
         public GameState(Game parentApp)
         {

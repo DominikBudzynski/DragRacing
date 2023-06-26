@@ -12,7 +12,7 @@ namespace DragRacing.Shop
         private readonly List<RaceCar> storedCars;
         private readonly List<int> carsPrize;
 
-        public RaceCarDealer(States.MainShopState parentShop) : base(parentShop)
+        public RaceCarDealer(States.MainShopState parentShop, Game upperState) : base(parentShop, upperState)
         {
             //DO ZMIANY
             storedCars = new List<RaceCar>();
@@ -25,6 +25,10 @@ namespace DragRacing.Shop
         }
 
         public override void EnterShop() { }
+        public override void UpdateShop()
+        {
+            ;
+        }
 
         public override double SellTo(Player player)
         {

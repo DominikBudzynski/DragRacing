@@ -10,9 +10,13 @@ namespace DragRacing.Shop
 {
     class EngineShop : ShopState
     {       
-        public EngineShop (States.MainShopState parentShop) : base (parentShop) { }
+        public EngineShop (States.MainShopState parentShop, Game upperState) : base (parentShop, upperState) { }
 
         public override void EnterShop() { }
+        public override void UpdateShop()
+        {
+            ;
+        }
 
         public override double SellTo(Player player)
         {
