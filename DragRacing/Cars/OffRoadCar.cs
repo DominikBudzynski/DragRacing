@@ -19,8 +19,8 @@ namespace DragRacing.Cars
             suspension = 0;
         }
 
-        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model) :
-                     base(enginePower, grip, gearBox, model)
+        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model, int shopPrize) :
+                     base(enginePower, grip, gearBox, model, shopPrize)
         {
             this.height = height;
             this.suspension = suspension;

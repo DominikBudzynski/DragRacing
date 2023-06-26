@@ -14,6 +14,7 @@ namespace DragRacing.Cars
         protected double grip, gripBonus;
         protected int gearBox;
         protected string model;
+        protected int shopPrize;
 
         public Car()
         {
@@ -22,12 +23,13 @@ namespace DragRacing.Cars
             GearBox = 1;
             model = string.Empty;
         }
-        public Car(double enginePower, double grip, int gearBox, string model)
+        public Car(double enginePower, double grip, int gearBox, string model, int shopPrize)
         {
             this.enginePower = enginePower;
             this.grip = grip;
             this.gearBox = gearBox;
             this.model = model;
+            this.shopPrize = shopPrize;
         }
 
         public double EnginePower
@@ -59,6 +61,8 @@ namespace DragRacing.Cars
                 else gearBox = 1;
             }
         }
+
+        public int ShopPrize() => shopPrize;
         public abstract double Accelerate(double distance);
 
         public override string ToString()

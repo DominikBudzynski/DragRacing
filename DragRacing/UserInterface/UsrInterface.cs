@@ -1,7 +1,9 @@
 ﻿using DragRacing.Cars;
+using DragRacing.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,18 +31,22 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void ProfilePrompt(List<IRaceable> args)
+        public void ProfilePrompt(Player player)
         {
             Console.Clear();
-            Console.WriteLine(
-                "This is your profile\n" +
-                "Owned cars: \n" +
-                "Press ESC to back to main menu"
-                );
-            foreach (IRaceable raceable in args)
+            Console.WriteLine("This is your profile\n");            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Funds: " + player.Funds);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\nOwned cars\n");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            foreach (IRaceable raceable in player.PlayerVehicles)
             {
                 Console.Write(raceable.ToString());
             }
+            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.WriteLine("\nPress ESC to back to main menu\n");
         }
 
         public void StagePrompt()
@@ -94,22 +100,24 @@ namespace DragRacing.UserInterface
             }
         }
 
-        public void EnginePrompt()
-                {
-                    Console.WriteLine(
-                        "Welcome to engine upgrade\n" +
-                        "1.Stock engine\n" +
-                        "2.Race engine\n" +
-                        "3.Professional engine\n" +
-                        "4.Pro engine\n"
-                        );
-                }
+        public void EnginePrompt(Player player)
+         {
+            Console.WriteLine(
+                "Welcome to engine upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() + 
+                "1.Stock engine\n" +
+                "2.Race engine\n" +
+                "3.Professional engine\n" +
+                "4.Pro engine\n"
+                );
+        }
 
-        public void TirePrompt()
+        public void TirePrompt(Player player)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to tires upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() +
                 "1.Stock tires\n" +
                 "2.Race tires\n" +
                 "3.Professional tires\n" +
@@ -118,10 +126,11 @@ namespace DragRacing.UserInterface
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void SuspensionPrompt()
+        public void SuspensionPrompt(Player player)
         {
             Console.WriteLine(
                 "Welcome to suspension upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() +
                 "1.Stock suspension\n" +
                 "2.Race suspension\n" +
                 "3.Professional suspension\n" +

@@ -19,8 +19,8 @@ namespace DragRacing.Cars
             aerodynamics = 1;
         }
 
-        public RaceCar(double enginePower, double grip, int gearBox, double turbo, double aerodynamics, string model) :
-                  base(enginePower, grip, gearBox, model)
+        public RaceCar(double enginePower, double grip, int gearBox, double turbo, double aerodynamics, string model, int shopPrize) :
+                  base(enginePower, grip, gearBox, model, shopPrize)
         {
             this.turbo = turbo;
             this.aerodynamics = aerodynamics;

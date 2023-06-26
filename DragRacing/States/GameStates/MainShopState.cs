@@ -33,17 +33,26 @@ namespace DragRacing.States.GameStates
 
         public override void DigitTwo()
         {
-            parentApp.ChangeState(new EngineShop(parentApp));
+            if (parentApp.HStage.GetPlayer.CurrentVehicle != null)
+            {
+                parentApp.ChangeState(new EngineShop(parentApp));
+            }
         }
 
         public override void DigitThree()
         {
-            parentApp.ChangeState(new TireShop(parentApp));
+            if (parentApp.HStage.GetPlayer.CurrentVehicle != null)
+            {
+                parentApp.ChangeState(new TireShop(parentApp));
+            }
         }
 
         public override void DigitFour()
         {
-            parentApp.ChangeState(new SuspensionShop(parentApp));
+            if (parentApp.HStage.GetPlayer.CurrentVehicle != null)
+            {
+                parentApp.ChangeState(new SuspensionShop(parentApp));
+            }
         }
     }
 }

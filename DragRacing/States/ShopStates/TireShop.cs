@@ -13,7 +13,7 @@ namespace DragRacing.States.ShopStates
 
         public override void StatePrompt()
         {
-            textInterface.TirePrompt();
+            textInterface.TirePrompt(parentApp.HStage.GetPlayer);
         }
 
         public override void EnterButton()

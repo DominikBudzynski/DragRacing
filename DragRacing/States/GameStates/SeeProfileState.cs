@@ -12,7 +12,7 @@ namespace DragRacing.States.GameStates
 
         public override void StatePrompt()
         {
-            textInterface.ProfilePrompt(parentApp.HStage.GetPlayer.PlayerVehicles);
+            textInterface.ProfilePrompt(parentApp.HStage.GetPlayer);
         }
 
         public override void EnterButton()

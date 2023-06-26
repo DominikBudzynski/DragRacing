@@ -11,15 +11,13 @@ namespace DragRacing.States.ShopStates
     class CarDealer : GameState
     {
         private int hihglightElement = 1;
-        private List<IRaceable> cars;
-        private List<int> carPrize;
+        private List<IRaceable> cars;        
 
         public CarDealer(Game.Game game) : base(game)
         {
-            cars = new List<IRaceable>();
-            carPrize = new List<int>();
-            cars.Add(new RaceCar(70, 10, 4, 30, 20, "Lanos")); carPrize.Add(6500);
-            cars.Add(new RaceCar(80, 10, 3, 30, 20, "Nubira")); carPrize.Add(7300);
+            cars = new List<IRaceable>();            
+            cars.Add(new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500));
+            cars.Add(new RaceCar(80, 10, 3, 30, 20, "Nubira", 8300));
         }
 
         public override void UpdateGame()
@@ -31,6 +29,7 @@ namespace DragRacing.States.ShopStates
             else if (keyInfo.Key == ConsoleKey.UpArrow) DownArrow();  
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
+            else if (keyInfo.Key == ConsoleKey.S) BackspaceButton();
         }
 
         public override void StatePrompt()
@@ -42,10 +41,11 @@ namespace DragRacing.States.ShopStates
         {
             if (customer != null)
             {
-                if (customer.Funds > carPrize[hihglightElement - 1])
+                if (customer.Funds > car.ShopPrize())
                 {
                     customer.AddCar(car);
-                    customer.Funds -= carPrize[hihglightElement - 1];
+                    customer.Funds -= car.ShopPrize();
+                    customer.CurrentVehicle = car;
                     return true;
                     //return "You successfully bought the car:";
                 }
@@ -55,7 +55,19 @@ namespace DragRacing.States.ShopStates
             else return false;
         }
 
-        //public void BuyFrom
+        public bool BuyFrom(Game.Player customer, IRaceable car)
+        {
+            if (customer != null)
+            {
+                if (customer.DeleteCar(car))
+                {
+                    customer.Funds += (int)(0.65 * (double)car.ShopPrize());
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
 
         public void UpArrow()
         {
@@ -68,6 +80,12 @@ namespace DragRacing.States.ShopStates
             if (hihglightElement == 1) ;
             else hihglightElement--;
         }
+
+        public void BackspaceButton()
+        {
+            //parentApp.HStage.GetPlayer.PlayerVehicles[hihglightElement-1]
+            BuyFrom(parentApp.HStage.GetPlayer, cars[hihglightElement - 1]);
+        }
         public override void EnterButton()
         {
             SellTo(parentApp.HStage.GetPlayer, cars[hihglightElement - 1]);
@@ -75,7 +93,7 @@ namespace DragRacing.States.ShopStates
         public override void ESCButton()
         {
             parentApp.ChangeState(new GameStates.MainShopState(parentApp));
-        }
+        }        
         public override void DigitOne() { }
         public override void DigitTwo() { }
         public override void DigitThree() { }
