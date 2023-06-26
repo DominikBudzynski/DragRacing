@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragRacing.States.ShopStates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace DragRacing.Cars
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private double height;
-        private double suspension;
+        private double suspension, suspBonus;
 
         public OffRoadCar() : base()
         {
@@ -36,10 +37,10 @@ namespace DragRacing.Cars
 
         public double Suspension
         {
-            get { return suspension; }
+            get { return (suspension + suspBonus); }
             set
             {
-                if (value > 0) suspension = value;
+                if (value > 0) suspBonus = value;
             }
         }
 

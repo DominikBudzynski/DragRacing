@@ -8,8 +8,8 @@ namespace DragRacing.Cars
 {
     class RaceCar : Car
     {
-        private double turbo;
-        private double aerodynamics;
+        private double turbo, turboBonus;
+        private double aerodynamics, aeroBonus;
         Random rnd = new Random();
 
         public RaceCar() : base()
@@ -27,22 +27,22 @@ namespace DragRacing.Cars
 
         public double Turbo
         {
-            get { return turbo; }
+            get { return (turbo + turboBonus); }
             set
             {
                 if (value > 0)
                 {
-                    turbo = value;
+                    turboBonus = value;
                 }
             }
         }
 
         public double Aerodynamics
         {
-            get { return aerodynamics; }
+            get { return (aerodynamics + aeroBonus); }
             set
             {
-                if (value > 0) aerodynamics = value;
+                if (value > 0) aeroBonus = value;
             }
         }
 

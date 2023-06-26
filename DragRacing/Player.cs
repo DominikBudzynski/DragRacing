@@ -10,19 +10,19 @@ namespace DragRacing
     class Player
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        private List<Cars.IRaceable> vehiclesList;
-        private Cars.IRaceable currVehicle;
+        private List<IRaceable> vehiclesList;
+        private IRaceable currVehicle;
         private int funds;
         private int experience;
 
         public Player()
         {
-            vehiclesList = new List<Cars.IRaceable>();
+            vehiclesList = new List<IRaceable>();
             funds = 10000;
             experience = 0;
         }
 
-        public Cars.IRaceable CurrentVehicle
+        public IRaceable CurrentVehicle
         {
             get { return currVehicle; }
             set { currVehicle = value; }
