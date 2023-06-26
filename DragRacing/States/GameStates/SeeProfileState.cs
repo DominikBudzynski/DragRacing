@@ -4,23 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DragRacing.States
+namespace DragRacing.States.GameStates
 {
-    internal class SeeProfileState : GameState 
+    internal class SeeProfileState : GameState
     {
         public SeeProfileState(Game game) : base(game) { }
 
-        public override void UpdateGame()
+        public override void StatePrompt()
         {
             textInterface.ProfilePrompt();
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-            if (keyInfo.Key == ConsoleKey.D1) DigitOne();
-            else if (keyInfo.Key == ConsoleKey.D2) DigitTwo();
-            else if (keyInfo.Key == ConsoleKey.D3) DigitThree();
-            else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
-            else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
-            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
 
         public override void EnterButton()

@@ -14,6 +14,7 @@ namespace DragRacing.UserInterface
             Console.Clear();
             return keyInfo;
         }
+
         public void MenuPrompt()
         {
             Console.Clear();
@@ -50,7 +51,57 @@ namespace DragRacing.UserInterface
             Console.Clear();
             Console.WriteLine(
                 "You have entered shop\n" +
+                "1.Car Dealer\n" +
+                "2.Engine upgrade\n" +
+                "3.Tire upgrade\n" +
+                "4.Suspension upgrade\n" +
                 "Press ESC to back to main menu"
+                );
+        }
+
+        public void DealerPrompt()
+        {
+            Console.WriteLine(
+                "Welcome to Car Dealer\n" +
+                "Which one do You want to buy?\n" +
+                "1.LANOS\n" +
+                "2.NUBIRA\n" +
+                "3.Press ESC to leave\n"
+                );
+        }
+
+        public void EnginePrompt()
+                {
+                    Console.WriteLine(
+                        "Welcome to engine upgrade\n" +
+                        "1.Stock engine\n" +
+                        "2.Race engine\n" +
+                        "3.Professional engine\n" +
+                        "4.Pro engine\n"
+                        );
+                }
+
+        public void TirePrompt()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(
+                "Welcome to tires upgrade\n" +
+                "1.Stock tires\n" +
+                "2.Race tires\n" +
+                "3.Professional tires\n" +
+                "4.Pro tires\n"
+                );
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void SuspensionPrompt()
+        {
+            Console.WriteLine(
+                "Welcome to suspension upgrade\n" +
+                "1.Stock suspension\n" +
+                "2.Race suspension\n" +
+                "3.Professional suspension\n" +
+                "4.Pro suspension\n"
                 );
         }
     }
