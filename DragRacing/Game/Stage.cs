@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DragRacing.Cars;
 
-namespace DragRacing
+namespace DragRacing.Game
 {
     class Stage
     {

@@ -11,11 +11,12 @@ namespace DragRacing
     {        
         public static void Main()
         { 
-            Game game = new Game();
+            Game.Game game = new Game.Game();
 
             while (true)
             {
                 Console.Clear();
+                //get user nickname
                 game.UpdateGame();
                 //Thread.Sleep(1000);
             }

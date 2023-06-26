@@ -9,7 +9,7 @@ namespace DragRacing.States.ShopStates
 {
     class SuspensionShop : GameState
     {
-        public SuspensionShop(Game game) : base(game) { }
+        public SuspensionShop(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {

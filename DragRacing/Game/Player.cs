@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DragRacing.Cars;
 
-namespace DragRacing
+namespace DragRacing.Game
 {
     class Player
     {
@@ -15,6 +15,7 @@ namespace DragRacing
         private int funds;
         private int experience;
 
+        //DODAC KONSTRUKTOR PARAMETRYCZNY, DODAC MOZLIWOSC USTAWIANIA NAZWY UZYTKOWNIKA
         public Player()
         {
             vehiclesList = new List<IRaceable>();
@@ -40,13 +41,13 @@ namespace DragRacing
             set { experience = value; }
         }
 
-        public void AddCar(Cars.Car car)
-        {       
+        public void AddCar(Car car)
+        {
             vehiclesList.Add(car);
         }
 
-        public bool DeleteCar(Cars.Car car)
-        {   
+        public bool DeleteCar(Car car)
+        {
             //Rozwiazac problem usuwania pierwszego wystapienia elementu
             //tak zeby mozna bylo posiadac wiele tych samych aut
             if (vehiclesList.Remove(car)) return true;

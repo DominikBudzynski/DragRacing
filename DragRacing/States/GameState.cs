@@ -9,10 +9,10 @@ namespace DragRacing.States
 {
     abstract class GameState
     {
-        protected Game parentApp;
+        protected Game.Game parentApp;
         protected TextInterface textInterface;
 
-        public GameState(Game parentApp)
+        public GameState(Game.Game parentApp)
         {
             this.parentApp = parentApp;
             textInterface = new TextInterface();

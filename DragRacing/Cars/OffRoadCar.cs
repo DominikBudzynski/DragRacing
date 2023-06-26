@@ -22,8 +22,8 @@ namespace DragRacing.Cars
         public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model) :
                      base(enginePower, grip, gearBox, model)
         {
-            Height = height;
-            Suspension = suspension;
+            this.height = height;
+            this.suspension = suspension;
         }
 
         public double Height
@@ -47,6 +47,15 @@ namespace DragRacing.Cars
         public override double Accelerate(double distance)
         {
             return 0;
+        }
+
+        public override string ToString()
+        {
+            return model +
+                " Engine power: " + enginePower +
+                " Grip: " + grip +
+                " Suspension: " + suspension +
+                " chuj wie: " + "\n";
         }
     }
 }

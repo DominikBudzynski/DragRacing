@@ -8,7 +8,7 @@ namespace DragRacing.States.ShopStates
 {
     class EngineShop : GameState
     {
-        public EngineShop(Game game) : base(game) { }
+        public EngineShop(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {

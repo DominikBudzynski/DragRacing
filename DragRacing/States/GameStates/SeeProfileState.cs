@@ -8,7 +8,7 @@ namespace DragRacing.States.GameStates
 {
     internal class SeeProfileState : GameState
     {
-        public SeeProfileState(Game game) : base(game) { }
+        public SeeProfileState(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {

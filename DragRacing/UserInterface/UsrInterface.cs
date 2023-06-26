@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DragRacing.Cars;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,15 +60,23 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void DealerPrompt()
+        public void DealerPrompt(List<IRaceable> args)
         {
+            int i = 1;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to Car Dealer\n" +
                 "Which one do You want to buy?\n" +
-                "1.LANOS\n" +
-                "2.NUBIRA\n" +
-                "3.Press ESC to leave\n"
+                "Press ESC to leave\n"
                 );
+            Console.ForegroundColor = ConsoleColor.White;
+            foreach (IRaceable raceable in args)
+            {
+                Console.Write(i.ToString() + " ");
+                Console.Write(raceable.ToString());
+                //Console.Write("\n");
+                i++;
+            }
         }
 
         public void EnginePrompt()

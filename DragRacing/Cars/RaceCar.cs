@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace DragRacing.Cars
 {
@@ -21,8 +22,8 @@ namespace DragRacing.Cars
         public RaceCar(double enginePower, double grip, int gearBox, double turbo, double aerodynamics, string model) :
                   base(enginePower, grip, gearBox, model)
         {
-            Turbo = turbo;
-            Aerodynamics = aerodynamics;
+            this.turbo = turbo;
+            this.aerodynamics = aerodynamics;
         }
 
         public double Turbo
@@ -67,6 +68,15 @@ namespace DragRacing.Cars
             Console.WriteLine();
             */
             return result;
+        }
+
+        public override string ToString()
+        {
+            return model +
+                " Engine power: " + enginePower.ToString() +
+                " Grip: " + grip +
+                " Turbocharge: " + turbo +
+                " Aerodynamics: " + aerodynamics + "\n";
         }
 
     }

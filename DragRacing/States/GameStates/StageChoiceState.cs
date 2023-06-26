@@ -8,7 +8,7 @@ namespace DragRacing.States.GameStates
 {
     class StageChoiceState : GameState
     {
-        public StageChoiceState(Game game) : base(game) { }
+        public StageChoiceState(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {

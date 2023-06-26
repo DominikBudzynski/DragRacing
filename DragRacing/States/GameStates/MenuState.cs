@@ -9,7 +9,7 @@ namespace DragRacing.States.GameStates
     class MenuState : GameState
     {
 
-        public MenuState(Game game) : base(game) { }
+        public MenuState(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {
