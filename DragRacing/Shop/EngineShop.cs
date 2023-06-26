@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace DragRacing.Shop
 {
     class EngineShop : ShopState
-    {
-        //zmienic metody DigitOne itd na override albo cos z tym zrobic 
+    {       
+        public EngineShop (States.MainShopState parentShop) : base (parentShop) { }
 
         public override void UpdateGame()
         {
@@ -35,14 +35,14 @@ namespace DragRacing.Shop
             return 0;
         }
 
-        public void EnterButton() { /*narazie pusto*/ }
-        public void ESCButton()
+        public override void EnterButton() { /*narazie pusto*/ }
+        public override void ESCButton()
         {
             //powrót do stanu MainShop
         }
-        public void DigitOne() { /*kupno ulepszenia silnika*/ }
-        public void DigitTwo() { /*kupno ulepszenia silnika*/ }
-        public void DigitThree() { /*kupno ulepszenia silnika*/ }
-        public void DigitFour() { /*kupno ulepszenia silnika*/ }
+        public override void DigitOne() { /*kupno ulepszenia silnika*/ }
+        public override void DigitTwo() { /*kupno ulepszenia silnika*/ }
+        public override void DigitThree() { /*kupno ulepszenia silnika*/ }
+        public override void DigitFour() { /*kupno ulepszenia silnika*/ }
     }
 }

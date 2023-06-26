@@ -10,7 +10,6 @@ namespace DragRacing.Shop
     {
         public TireShop(States.MainShopState parentShop) : base(parentShop) { }
 
-
         public override double SellTo(Player player)
         {
             return 0;
@@ -20,5 +19,13 @@ namespace DragRacing.Shop
         {
             return 0;
         }
+
+        public override void UpdateGame() { }
+        public override void EnterButton() { }
+        public override void ESCButton() { }
+        public override void DigitOne() { }
+        public override void DigitTwo() { }
+        public override void DigitThree() { }
+        public override void DigitFour() { }
     }
 }

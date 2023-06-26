@@ -12,17 +12,16 @@ namespace DragRacing.Shop
         private readonly List<RaceCar> storedCars;
         private readonly List<int> carsPrize;
 
-        public RaceCarDealer(Shop.ShopState parrentState)
+        public RaceCarDealer(States.MainShopState parentShop) : base(parentShop)
         {
-            
-
+            //DO ZMIANY
             storedCars = new List<RaceCar>();
             carsPrize = new List<int>();
             storedCars.Add(new RaceCar(70, 10, 30, 20, "AUTO1"));
             carsPrize.Add(7000);
-            storedCars.Add(new RaceCar(90, 14, 34, 28, "AUTO2"));            
+            storedCars.Add(new RaceCar(90, 14, 34, 28, "AUTO2"));
             storedCars.Add(new RaceCar(110, 18, 38, 36, "AUTO3"));
-            storedCars.Add(new RaceCar(130, 22, 42, 44, "AUTO4"));            
+            storedCars.Add(new RaceCar(130, 22, 42, 44, "AUTO4"));
         }
 
         public override double SellTo(Player player)
@@ -35,7 +34,7 @@ namespace DragRacing.Shop
                 player.AddCar(storedCars[0]);
                 player.Funds -= carsPrize[0];
                 return player.Funds;
-            }                            
+            }
         }
 
         public override double BuyFrom(Player player)
@@ -48,5 +47,13 @@ namespace DragRacing.Shop
             }
             return 0;
         }
+
+        public override void UpdateGame() { }
+        public override void EnterButton() { }
+        public override void ESCButton() { }
+        public override void DigitOne() { } 
+        public override void DigitTwo() { }
+        public override void DigitThree() { }
+        public override void DigitFour() { }
     }
 }

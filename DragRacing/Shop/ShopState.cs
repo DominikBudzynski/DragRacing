@@ -23,5 +23,12 @@ namespace DragRacing.Shop
         public abstract double BuyFrom(Player player);
 
         //zadeklarowac metody odpowiadajace za zmiane stanu np. DigitOne()
+        public abstract void UpdateGame();
+        public abstract void EnterButton();
+        public abstract void ESCButton();
+        public abstract void DigitOne();
+        public abstract void DigitTwo();
+        public abstract void DigitThree();
+        public abstract void DigitFour();
     }
 }
