@@ -19,5 +19,7 @@ namespace DragRacing.Game
             //rozstrzyganie kto wygrywa
             return false;
         }
+
+        public Player GetPlayer{ get { return player; } }
     }
 }

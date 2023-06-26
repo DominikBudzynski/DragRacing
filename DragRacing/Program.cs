@@ -4,14 +4,18 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Timers;
 using DragRacing.Cars;
+using DragRacing.Game;
 
 namespace DragRacing
 {
     class Program
-    {        
+    {
+        public Player player = new Player();
+
         public static void Main()
         { 
             Game.Game game = new Game.Game();
+            
 
             while (true)
             {

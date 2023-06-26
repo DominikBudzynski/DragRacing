@@ -1,4 +1,5 @@
 ﻿using DragRacing.Cars;
+using DragRacing.Game;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +10,68 @@ namespace DragRacing.States.ShopStates
 {
     class CarDealer : GameState
     {
+        private int hihglightElement = 1;
         private List<IRaceable> cars;
+        private List<int> carPrize;
+
         public CarDealer(Game.Game game) : base(game)
         {
             cars = new List<IRaceable>();
-            cars.Add(new RaceCar(70, 10, 4, 30, 20, "Lanos"));
-            cars.Add(new RaceCar(80, 10, 3, 30, 20, "Nubira"));
+            carPrize = new List<int>();
+            cars.Add(new RaceCar(70, 10, 4, 30, 20, "Lanos")); carPrize.Add(6500);
+            cars.Add(new RaceCar(80, 10, 3, 30, 20, "Nubira")); carPrize.Add(7300);
+        }
+
+        public override void UpdateGame()
+        {
+            StatePrompt();
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            if (keyInfo.Key == ConsoleKey.DownArrow) UpArrow();
+            else if (keyInfo.Key == ConsoleKey.UpArrow) DownArrow();  
+            else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
+            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
         }
 
         public override void StatePrompt()
         {
-            textInterface.DealerPrompt(cars);           
+            textInterface.DealerPrompt(cars, hihglightElement);           
         }
 
-        public void SellTo(Game.Player customer, IRaceable car)
+        public bool SellTo(Game.Player customer, IRaceable car)
         {
-
+            if (customer != null)
+            {
+                if (customer.Funds > carPrize[hihglightElement - 1])
+                {
+                    customer.AddCar(car);
+                    customer.Funds -= carPrize[hihglightElement - 1];
+                    return true;
+                    //return "You successfully bought the car:";
+                }
+                else return false;
+                //else return "You can't afford this car.";
+            }
+            else return false;
         }
 
         //public void BuyFrom
 
-        public override void EnterButton() { }       
+        public void UpArrow()
+        {
+            if (hihglightElement >= cars.Count) ;
+            else hihglightElement++;
+        }
+
+        public void DownArrow()
+        {
+            if (hihglightElement == 1) ;
+            else hihglightElement--;
+        }
+        public override void EnterButton()
+        {
+            SellTo(parentApp.HStage.GetPlayer, cars[hihglightElement - 1]);
+        }     
         public override void ESCButton()
         {
             parentApp.ChangeState(new GameStates.MainShopState(parentApp));

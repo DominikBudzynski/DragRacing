@@ -60,7 +60,7 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void DealerPrompt(List<IRaceable> args)
+        public void DealerPrompt(List<IRaceable> args, int highlightedElement)
         {
             int i = 1;
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -72,9 +72,19 @@ namespace DragRacing.UserInterface
             Console.ForegroundColor = ConsoleColor.White;
             foreach (IRaceable raceable in args)
             {
-                Console.Write(i.ToString() + " ");
-                Console.Write(raceable.ToString());
-                //Console.Write("\n");
+                if (i == highlightedElement)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write(i.ToString() + " ");
+                    Console.Write(raceable.ToString());
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.Write(i.ToString() + " ");
+                    Console.Write(raceable.ToString());
+                }
+                
                 i++;
             }
         }

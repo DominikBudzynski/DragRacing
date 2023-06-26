@@ -41,12 +41,12 @@ namespace DragRacing.Game
             set { experience = value; }
         }
 
-        public void AddCar(Car car)
+        public void AddCar(IRaceable car)
         {
             vehiclesList.Add(car);
         }
 
-        public bool DeleteCar(Car car)
+        public bool DeleteCar(IRaceable car)
         {
             //Rozwiazac problem usuwania pierwszego wystapienia elementu
             //tak zeby mozna bylo posiadac wiele tych samych aut
