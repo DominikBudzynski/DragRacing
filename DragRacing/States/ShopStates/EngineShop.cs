@@ -13,9 +13,14 @@ namespace DragRacing.States.ShopStates
     class EngineShop : GameState, IShop
     {        
         private List<int> engineUpgrades;
+        private int multiplier;
+        private bool alreadyUpgraded;
+
         public EngineShop(Game.Game game) : base(game)
         {
             engineUpgrades = new List<int>() { 10, 20, 30, 40 };
+            multiplier = 200;
+            alreadyUpgraded = false;
         }
 
         public override void StatePrompt()
@@ -28,10 +33,11 @@ namespace DragRacing.States.ShopStates
             Car tempCar = car as Car;
             if (tempCar != null)
             {
-                if (parentApp.HStage.GetPlayer.Funds >= engineUpgrades[index] * 100)
+                if (parentApp.HStage.GetPlayer.Funds >= engineUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.engineBonus = engineUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (engineUpgrades[index] * 100);
+                    parentApp.HStage.GetPlayer.Funds -= (engineUpgrades[index] * multiplier);
+                    alreadyUpgraded = true;
                     return tempCar.engineBonus;
                 }
                 return 0;
@@ -41,12 +47,24 @@ namespace DragRacing.States.ShopStates
 
         public double BuyFrom(IRaceable car)
         {
-            return 0;
+            if (car is Car)
+            {
+                RaceCar tempCar = car as RaceCar;
+                if (tempCar != null)
+                {
+                    parentApp.HStage.GetPlayer.Funds += (int)((double)tempCar.engineBonus * 0.5 * (double)multiplier);
+                    tempCar.engineBonus = 0;
+                    alreadyUpgraded = false;
+                    return tempCar.engineBonus;
+                }
+                return -1;
+            }
+            return -1;
         }
 
         public override void EnterButton()
         {
-            ;
+            BuyFrom(parentApp.HStage.GetPlayer.CurrentVehicle);
         }
 
         public override void ESCButton()
