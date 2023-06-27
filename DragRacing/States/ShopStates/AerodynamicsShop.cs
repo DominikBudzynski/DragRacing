@@ -1,5 +1,4 @@
 ﻿using DragRacing.Cars;
-using DragRacing.UserInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +7,41 @@ using System.Threading.Tasks;
 
 namespace DragRacing.States.ShopStates
 {
-    class SuspensionShop : GameState, IShop
+    class AerodynamicsShop : GameState, IShop
     {
-        private List<int> suspensionUpgrades;
-        public SuspensionShop(Game.Game game) : base(game) { }
+        private List<int> aeroUpgrades;
+
+        public AerodynamicsShop(Game.Game game) : base(game)
+        {
+            aeroUpgrades = new List<int>() { 10, 20, 30, 40 };
+        }
 
         public override void StatePrompt()
         {
-            textInterface.SuspensionPrompt(parentApp.HStage.GetPlayer);
-            suspensionUpgrades = new List<int>() { 20, 30, 40, 50 };
-        }
-
-        public double SellTo(IRaceable car, int index)
-        {
-            OffRoadCar tempCar = car as OffRoadCar;
-            if (tempCar != null)
-            {
-                if (parentApp.HStage.GetPlayer.Funds >= suspensionUpgrades[index] * 100)
-                {
-                    tempCar.suspensionBonus = suspensionUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (suspensionUpgrades[index] * 100);
-                    return tempCar.suspensionBonus;
-                }
-                return 0;                
-            }
-            else return 0;
+            textInterface.AeroPrompt(parentApp.HStage.GetPlayer);
         }
         
+        public double SellTo(IRaceable car, int index)
+        {
+            RaceCar tempCar = car as RaceCar;
+            if (tempCar != null)
+            {
+                if (parentApp.HStage.GetPlayer.Funds >= aeroUpgrades[index] * 100)
+                {
+                    tempCar.aeroBonus = aeroUpgrades[index];
+                    parentApp.HStage.GetPlayer.Funds -= (aeroUpgrades[index] * 100);
+                    return tempCar.aeroBonus;
+                }
+                return 0;
+            }
+            return 0;
+        }
+
         public double BuyFrom(IRaceable car)
         {
             return 0;
         }
+
         public override void EnterButton()
         {
             ;
@@ -68,7 +71,9 @@ namespace DragRacing.States.ShopStates
         {
             SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 3);
         }
+
         public override void DigitFive() { }
+
         public override void DigitSix() { }
     }
 }

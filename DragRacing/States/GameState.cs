@@ -29,6 +29,8 @@ namespace DragRacing.States
             else if (keyInfo.Key == ConsoleKey.D4) DigitFour();
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
             else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
+            else if (keyInfo.Key == ConsoleKey.D5) DigitFive();
+            else if (keyInfo.Key == ConsoleKey.D6) DigitSix();
         }
         public abstract void StatePrompt();          
         public abstract void EnterButton();
@@ -37,6 +39,8 @@ namespace DragRacing.States
         public abstract void DigitTwo();
         public abstract void DigitThree();
         public abstract void DigitFour();
+        public abstract void DigitFive();
+        public abstract void DigitSix();
 
     }
 }

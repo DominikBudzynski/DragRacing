@@ -20,14 +20,14 @@ namespace DragRacing.Cars
             aerodynamics = 1;
         }
 
-        public RaceCar(double enginePower, double grip, int gearBox, double turbo, double aerodynamics, string model, int shopPrize) :
+        public RaceCar(int enginePower, int grip, int gearBox, int turbo, int aerodynamics, string model, int shopPrize) :
                   base(enginePower, grip, gearBox, model, shopPrize)
         {
             this.turbo = turbo;
             this.aerodynamics = aerodynamics;
         }
 
-        public double Turbo
+        public int Turbo
         {
             get { return (turbo + turboBonus); }
             set
@@ -39,7 +39,7 @@ namespace DragRacing.Cars
             }
         }
 
-        public double Aerodynamics
+        public int Aerodynamics
         {
             get { return (aerodynamics + aeroBonus); }
             set
@@ -60,9 +60,9 @@ namespace DragRacing.Cars
         {
             return model +
                 " Engine power: " + EnginePower.ToString() +
-                " Grip: " + Grip +
-                " Turbocharge: " + Turbo +
-                " Aerodynamics: " + Aerodynamics + "\n";
+                " Grip: " + Grip.ToString() +
+                " Turbocharge: " + Turbo.ToString() +
+                " Aerodynamics: " + Aerodynamics.ToString() + "\n";
         }
 
     }

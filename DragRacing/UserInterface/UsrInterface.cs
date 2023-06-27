@@ -66,7 +66,9 @@ namespace DragRacing.UserInterface
                 "1.Car Dealer\n" +
                 "2.Engine upgrade\n" +
                 "3.Tire upgrade\n" +
-                "4.Suspension upgrade\n" +
+                "4.Turbo upgrade\n" +
+                "5.Aerodynamics upgrade\n" +
+                "6.Suspension upgrade\n" +
                 "Press ESC to back to main menu"
                 );
         }
@@ -100,6 +102,8 @@ namespace DragRacing.UserInterface
             }
         }
 
+        //ZROBIC COS Z CENAMI
+
         public void EnginePrompt(Player player)
          {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -121,7 +125,8 @@ namespace DragRacing.UserInterface
             Console.WriteLine(
                 "Welcome to tires upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
-                "1.Stock tires\n" +
+                "Your funds: " + player.Funds.ToString() + "$" +
+                "1.Better tires\n" +
                 "2.Race tires\n" +
                 "3.Professional tires\n" +
                 "4.Pro tires\n"
@@ -135,6 +140,7 @@ namespace DragRacing.UserInterface
             Console.WriteLine(
                 "Welcome to suspension upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
+                "Your funds: " + player.Funds.ToString() + "$" +
                 "1.Stock suspension\n" +
                 "2.Race suspension\n" +
                 "3.Professional suspension\n" +
@@ -143,6 +149,34 @@ namespace DragRacing.UserInterface
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void TurboPrompt() { }
+        public void TurboPrompt(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(
+                "Welcome to engine upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() +
+                "Your funds: " + player.Funds.ToString() + "$" +
+                "\n1.Better turbo\n" +
+                "2.Race turbo: 100$\n" +
+                "3.Professional turbo: 200$\n" +
+                "4.Pro turbo: 300$\n"
+                );
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void AeroPrompt(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(
+                "Welcome to engine upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() +
+                "Your funds: " + player.Funds.ToString() + "$" +
+                "\n1.Better aerodynamics\n" +
+                "2.Race aerodynamics: 100$\n" +
+                "3.Professional aerodynamics: 200$\n" +
+                "4.Pro aerodynamics: 300$\n"
+                );
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }

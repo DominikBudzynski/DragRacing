@@ -46,5 +46,7 @@ namespace DragRacing.States.GameStates
         {
             Environment.Exit(1);
         }
+        public override void DigitFive() { }
+        public override void DigitSix() { }
     }
 }

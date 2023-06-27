@@ -97,5 +97,7 @@ namespace DragRacing.States.ShopStates
         public override void DigitTwo() { }
         public override void DigitThree() { }
         public override void DigitFour() { }
+        public override void DigitFive() { }
+        public override void DigitSix() { }
     }
 }

@@ -18,19 +18,60 @@ namespace DragRacing.States.ShopStates
 
         public override void StatePrompt()
         {
-            textInterface.TurboPrompt();
+            textInterface.TurboPrompt(parentApp.HStage.GetPlayer);
         }
+
         public double SellTo(IRaceable car, int index)
         {
-            OffRoadCar tempCar = car as OffRoadCar;
+            RaceCar tempCar = car as RaceCar;
             if (tempCar != null)
             {
                 if (parentApp.HStage.GetPlayer.Funds >= turboUpgrades[index] * 100)
+                {
                     tempCar.turboBonus = turboUpgrades[index];
-                parentApp.HStage.GetPlayer.Funds -= (turboUpgrades[index] * 100);
-                return tempCar.engineBonus;
+                    parentApp.HStage.GetPlayer.Funds -= (turboUpgrades[index] * 100);
+                    return tempCar.turboBonus;
+                }
+                return 0;
             }
-            else return 0;
+            return 0;
         }
+
+        public double BuyFrom(IRaceable car)
+        {
+            return 0;
+        }
+
+        public override void EnterButton()
+        {
+            ;
+        }
+
+        public override void ESCButton()
+        {
+            parentApp.ChangeState(new GameStates.MainShopState(parentApp));
+        }
+
+        public override void DigitOne()
+        {
+            SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 0);
+        }
+
+        public override void DigitTwo()
+        {
+            SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 1);
+        }
+
+        public override void DigitThree()
+        {
+            SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 2);
+        }
+
+        public override void DigitFour()
+        {
+            SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 3);
+        }
+        public override void DigitFive() { }
+        public override void DigitSix() { }
     }
 }

@@ -20,7 +20,7 @@ namespace DragRacing.Cars
             suspension = 0;
         }
 
-        public OffRoadCar(double enginePower, double grip, int gearBox, double height, int suspension, string model, int shopPrize) :
+        public OffRoadCar(int enginePower, int grip, int gearBox, int height, int suspension, string model, int shopPrize) :
                      base(enginePower, grip, gearBox, model, shopPrize)
         {
             this.height = height;
@@ -38,10 +38,10 @@ namespace DragRacing.Cars
 
         public int Suspension
         {
-            get { return (suspension + suspBonus); }
+            get { return (suspension + suspensionBonus); }
             set
             {
-                if (value > 0) suspBonus = value;
+                if (value > 0) suspensionBonus = value;
             }
         }
 
@@ -53,9 +53,9 @@ namespace DragRacing.Cars
         public override string ToString()
         {
             return model +
-                " Engine power: " + enginePower +
-                " Grip: " + grip +
-                " Suspension: " + suspension +
+                " Engine power: " + EnginePower.ToString() +
+                " Grip: " + Grip.ToString() +
+                " Suspension: " + Suspension.ToString() +
                 " cos dodawtkowo: " + "\n";
         }
     }

@@ -19,8 +19,9 @@ namespace DragRacing.Game
         public Player()
         {
             vehiclesList = new List<IRaceable>();
-            funds = 10000;
+            funds = 100000;
             experience = 0;
+            currVehicle = new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500);
         }
 
         public IRaceable CurrentVehicle

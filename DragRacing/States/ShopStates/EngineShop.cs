@@ -29,9 +29,12 @@ namespace DragRacing.States.ShopStates
             if (tempCar != null)
             {
                 if (parentApp.HStage.GetPlayer.Funds >= engineUpgrades[index] * 100)
-                tempCar.engineBonus = engineUpgrades[index];
-                parentApp.HStage.GetPlayer.Funds -= (engineUpgrades[index] * 100);
-                return tempCar.engineBonus;
+                {
+                    tempCar.engineBonus = engineUpgrades[index];
+                    parentApp.HStage.GetPlayer.Funds -= (engineUpgrades[index] * 100);
+                    return tempCar.engineBonus;
+                }
+                return 0;
             }
             else return 0;
         }
@@ -70,5 +73,7 @@ namespace DragRacing.States.ShopStates
         {
             SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 3);
         }
+        public override void DigitFive() { }
+        public override void DigitSix() { }
     }
 }
