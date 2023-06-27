@@ -188,6 +188,16 @@ namespace DragRacing.UserInterface
 
         //RACING STAGES
 
-        //public void 
+        public void DuringRacePrompt(List<Stage> enemies, int stage)
+        {
+            int i = 1;
+            Console.ForegroundColor = ConsoleColor.Red;
+            foreach(IRaceable enemy in enemies[stage - 1].StageEnemies)
+            {
+                Console.WriteLine("\n" + i + "." + enemy.ToString());
+            }
+            Console.WriteLine("\nPress ESC to go back\n");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }

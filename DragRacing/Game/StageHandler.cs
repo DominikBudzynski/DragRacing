@@ -25,5 +25,6 @@ namespace DragRacing.Game
         }
 
         public Player GetPlayer{ get { return player; } }
+        public List<Stage> GetStages {  get { return stages; } }
     }
 }

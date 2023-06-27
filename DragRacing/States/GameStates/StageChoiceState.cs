@@ -27,22 +27,22 @@ namespace DragRacing.States.GameStates
 
         public override void DigitOne()
         {
-            ;
+            parentApp.ChangeState(new DuringRace(parentApp, 1));
         }
 
         public override void DigitTwo()
         {
-            ;
+            parentApp.ChangeState(new DuringRace(parentApp, 2));
         }
 
         public override void DigitThree()
         {
-            ;
+            parentApp.ChangeState(new DuringRace(parentApp, 3));
         }
 
         public override void DigitFour()
         {
-            ;
+            parentApp.ChangeState(new DuringRace(parentApp, 4));
         }
         public override void DigitFive() { }
         public override void DigitSix() { }
