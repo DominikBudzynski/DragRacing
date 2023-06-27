@@ -11,6 +11,7 @@ namespace DragRacing.States.ShopStates
     class CarDealer : GameState
     {
         //ZROBIC SPRZEDAWANIE AUT
+        //CHYBA NAJLEPIEJ ZROBIC TO W PROFILU
 
         private int highlightElement = 1;
         private List<IRaceable> cars;        
