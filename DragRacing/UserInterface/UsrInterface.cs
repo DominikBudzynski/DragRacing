@@ -33,21 +33,34 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void ProfilePrompt(Player player)
+        public void ProfilePrompt(Player player, int highlightedElement)
         {
+            int i = 1;
             Console.Clear();
             Console.WriteLine("This is your profile\n");            
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Funds: " + player.Funds);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("\nOwned cars\n");
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\nOwned cars\n");            
             foreach (IRaceable raceable in player.PlayerVehicles)
             {
-                Console.Write(raceable.ToString());
+                if (i == highlightedElement)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write(i.ToString() + " ");
+                    Console.Write(raceable.ToString());
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.Write(i.ToString() + " ");
+                    Console.Write(raceable.ToString());
+                }
+
+                i++;
             }
             Console.ForegroundColor = ConsoleColor.White;
-
+            Console.WriteLine("\nS - sell selected car\nReturn - set selectes car as current\n");
             Console.WriteLine("\nPress ESC to back to main menu\n");
         }
 

@@ -10,9 +10,6 @@ namespace DragRacing.States.ShopStates
 {
     class CarDealer : GameState
     {
-        //ZROBIC SPRZEDAWANIE AUT
-        //CHYBA NAJLEPIEJ ZROBIC TO W PROFILU
-
         private int highlightElement = 1;
         private List<IRaceable> cars;        
 
@@ -31,8 +28,7 @@ namespace DragRacing.States.ShopStates
             if (keyInfo.Key == ConsoleKey.DownArrow) UpArrow();
             else if (keyInfo.Key == ConsoleKey.UpArrow) DownArrow();
             else if (keyInfo.Key == ConsoleKey.Escape) ESCButton();
-            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();
-            else if (keyInfo.Key == ConsoleKey.S) BackspaceButton();
+            else if (keyInfo.Key == ConsoleKey.Enter) EnterButton();            
         }
 
         public override void StatePrompt()
@@ -58,20 +54,6 @@ namespace DragRacing.States.ShopStates
             else return false;
         }
 
-        public bool BuyFrom(Game.Player customer, IRaceable car)
-        {
-            if (customer != null)
-            {
-                if (customer.DeleteCar(car))
-                {
-                    customer.Funds += (int)(0.65 * (double)car.ShopPrize());
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-
         public void UpArrow()
         {
             if (highlightElement < cars.Count) highlightElement++;
@@ -83,11 +65,6 @@ namespace DragRacing.States.ShopStates
             else highlightElement--;
         }
 
-        public void BackspaceButton()
-        {
-            //parentApp.HStage.GetPlayer.PlayerVehicles[hihglightElement-1]
-            BuyFrom(parentApp.HStage.GetPlayer, cars[highlightElement - 1]);
-        }
         public override void EnterButton()
         {
             SellTo(parentApp.HStage.GetPlayer, cars[highlightElement - 1]);
@@ -96,6 +73,7 @@ namespace DragRacing.States.ShopStates
         {
             parentApp.ChangeState(new GameStates.MainShopState(parentApp));
         }        
+
         public override void DigitOne() { }
         public override void DigitTwo() { }
         public override void DigitThree() { }

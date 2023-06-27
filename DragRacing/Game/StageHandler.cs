@@ -9,6 +9,7 @@ namespace DragRacing.Game
 {
     class StageHandler
     {
+        //UPDATEPLAYER TRZEBA OBLICZAC DOSWIADCZENIE I HAJS
         private List<Stage> stages;
         private Player player;
         private bool ifLastWon;
