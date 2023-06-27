@@ -37,7 +37,5 @@ namespace DragRacing.Game
             get { return trackPrizes; }
             set { trackPrizes = value; }
         }
-
-
     }
 }
