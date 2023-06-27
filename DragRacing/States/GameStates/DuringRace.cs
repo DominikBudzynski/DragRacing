@@ -29,12 +29,15 @@ namespace DragRacing.States.GameStates
                 textInterface.RaceResults(ifWon);
             }
             
-        }
-
+        }        
+        /// /////////////////////////////////////////////////        
+        //COS ZROBIC Z DYSTANSEM
+        //ZROBIC BONUSY (IDENTYFIKACJA TEGO KTORY WYSCIG JEST AKTUALNIE ROZGRYWANY)
+        //
         public override void DigitOne()
         {
             //wyscig z 1 se stage
-            parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
+            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
                                           parentApp.HStage.GetStages[currentStage - 1].StageEnemies[0]);
             afterRace = true;
 
@@ -42,21 +45,21 @@ namespace DragRacing.States.GameStates
         public override void DigitTwo()
         {
             //wyscig z 2 se stage
-            parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
+            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
                                           parentApp.HStage.GetStages[currentStage - 1].StageEnemies[1]);
             afterRace = true;
         }
         public override void DigitThree()
         {
             //wyscig z 3 se stage
-            parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
+            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
                                           parentApp.HStage.GetStages[currentStage - 1].StageEnemies[2]);
             afterRace = true;
         }
         public override void DigitFour()
         {
             //wyscig z 4 se stage
-            parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
+            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
                                           parentApp.HStage.GetStages[currentStage - 1].StageEnemies[3]);
             afterRace = true;
         }

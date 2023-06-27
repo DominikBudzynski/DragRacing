@@ -11,19 +11,34 @@ namespace DragRacing.Game
     {
         private List<Stage> stages;
         private Player player;
+        private bool ifLastWon;
 
         public StageHandler(List<Stage> stages)
         {
             player = new Player();
             this.stages = stages;
+            ifLastWon = false;
         }
 
-        public bool EvaluateRace(IRaceable player, IRaceable enemyVehicle)
+        public bool EvaluateRace(IRaceable playerVehicle, IRaceable enemyVehicle)
         {
-            //rozstrzyganie kto wygrywa
+            //TRZEBA UWZGLEDNIC DOSWIADCZENIE + BONUSY DLA KAZDEJ TRASY
+            double playerTime, enemyTime;
+            playerTime = playerVehicle.Accelerate(500);
+            enemyTime = enemyVehicle.Accelerate(500);
+            if (playerTime < enemyTime) return true;
+            else if (playerTime > enemyTime) return false;
             return false;
         }
 
+        public void UpdatePlayer()
+        {
+            if (ifLastWon)
+            {
+
+            }
+
+        }
         public Player GetPlayer{ get { return player; } }
         public List<Stage> GetStages {  get { return stages; } }
     }

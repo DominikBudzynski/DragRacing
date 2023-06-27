@@ -13,11 +13,11 @@ namespace DragRacing.Game
         {
             Stage stage = new Stage();
             //stage enemies init
-            List<IRaceable> enemies = new List<IRaceable>() {             
-                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS1", mlp * 100),
-                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS2", mlp * 100),
-                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS3", mlp * 100),
-                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS4", mlp * 100)
+            List<IRaceable> enemies = new List<IRaceable>() {
+                new RaceCar(mlp * 70, mlp * 10, 4, mlp * 30, mlp * 20, "Lanos", 6500),
+                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS2", 100),
+                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS3", 100),
+                new RaceCar(mlp * 100, mlp * 100, 4, mlp * 100, mlp * 100, "LANOS4", 100)
             };            
 
             //track bonuses init
