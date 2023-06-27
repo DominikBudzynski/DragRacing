@@ -71,6 +71,7 @@ namespace DragRacing.States.ShopStates
         {
             SellTo(parentApp.HStage.GetPlayer.CurrentVehicle, 3);
         }
+
         public override void DigitFive() { }
         public override void DigitSix() { }
     }

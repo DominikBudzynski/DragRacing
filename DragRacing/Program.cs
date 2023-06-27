@@ -15,7 +15,16 @@ namespace DragRacing
         public static void Main()
         { 
             Game.Game game = new Game.Game();
-            
+            StageInitializer stageInit = new StageInitializer();
+
+            List <Stage> stages = new List <Stage>();
+            stages.Add(stageInit.InitStage(1));
+            stages.Add(stageInit.InitStage(2));
+            stages.Add(stageInit.InitStage(3));
+            stages.Add(stageInit.InitStage(4));
+
+            StageHandler hStage = new StageHandler(stages);
+            game.HStage = hStage;
 
             while (true)
             {

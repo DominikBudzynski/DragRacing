@@ -13,13 +13,13 @@ namespace DragRacing.Game
 
         public Game()
         {
-            currentState = new States.GameStates.MenuState(this);
-            hStage = new StageHandler();
+            currentState = new States.GameStates.MenuState(this);            
         }
 
         public StageHandler HStage
         {
             get { return hStage; }
+            set { hStage = value; }
         }
 
         public void ChangeState(States.GameState state)

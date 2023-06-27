@@ -11,7 +11,9 @@ namespace DragRacing.UserInterface
 {
     class TextInterface
     {
-        public static ConsoleKeyInfo ReadKey()
+        //MENU
+
+        public ConsoleKeyInfo ReadKey()
         {
             ConsoleKeyInfo keyInfo = Console.ReadKey();
             Console.Clear();
@@ -54,6 +56,10 @@ namespace DragRacing.UserInterface
             Console.Clear();
             Console.WriteLine(
                 "Here you can choose racing stage\n" +
+                "1.Stage 1\n" +
+                "2.Stage 2\n" +
+                "3.Stage 3\n" +
+                "4.Stage 4\n" +
                 "Press ESC to back to main menu"
                 );
         }
@@ -102,6 +108,7 @@ namespace DragRacing.UserInterface
             }
         }
 
+        //SHOPS
         //ZROBIC COS Z CENAMI
 
         public void EnginePrompt(Player player)
@@ -178,5 +185,9 @@ namespace DragRacing.UserInterface
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        //RACING STAGES
+
+        //public void 
     }
 }
