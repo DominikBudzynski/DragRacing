@@ -22,6 +22,7 @@ namespace DragRacing.Game
             funds = 100000;
             experience = 0;
             currVehicle = new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500);
+            vehiclesList.Add(currVehicle);
         }
 
         public IRaceable CurrentVehicle

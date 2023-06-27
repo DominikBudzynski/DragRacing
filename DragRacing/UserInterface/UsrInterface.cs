@@ -194,9 +194,27 @@ namespace DragRacing.UserInterface
             Console.ForegroundColor = ConsoleColor.Red;
             foreach(IRaceable enemy in enemies[stage - 1].StageEnemies)
             {
-                Console.WriteLine("\n" + i + "." + enemy.ToString());
+                Console.Write("" + i + "." + enemy.ToString());
+                i++;
             }
             Console.WriteLine("\nPress ESC to go back\n");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void RaceResults(bool ifWon)
+        {
+            if (ifWon)
+            {
+                Console.ForegroundColor= ConsoleColor.Green;
+                Console.WriteLine("You has won!\n" +
+                    "Gained Experience: Gained cash: \nPress Return to back to the stage choice.");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You lose!\n" +
+                    "Gained Experience: Gained cash: \nPress Return to back to the stage choice.");
+            }
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
