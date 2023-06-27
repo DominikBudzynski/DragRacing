@@ -11,12 +11,17 @@ namespace DragRacing.States.ShopStates
     class SuspensionShop : GameState, IShop
     {
         private List<int> suspensionUpgrades;
+        private int multiplier;
+        private bool alreadyUpgraded;
+
         public SuspensionShop(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {
             textInterface.SuspensionPrompt(parentApp.HStage.GetPlayer);
             suspensionUpgrades = new List<int>() { 20, 30, 40, 50 };
+            multiplier = 200;
+            alreadyUpgraded = false;
         }
 
         public double SellTo(IRaceable car, int index)
@@ -24,24 +29,37 @@ namespace DragRacing.States.ShopStates
             OffRoadCar tempCar = car as OffRoadCar;
             if (tempCar != null)
             {
-                if (parentApp.HStage.GetPlayer.Funds >= suspensionUpgrades[index] * 100)
+                if (parentApp.HStage.GetPlayer.Funds >= suspensionUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.suspensionBonus = suspensionUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (suspensionUpgrades[index] * 100);
+                    parentApp.HStage.GetPlayer.Funds -= (suspensionUpgrades[index] * multiplier);
+                    alreadyUpgraded = true;
                     return tempCar.suspensionBonus;
                 }
                 return 0;                
             }
             else return 0;
         }
-        
+
         public double BuyFrom(IRaceable car)
         {
-            return 0;
+            if (car is OffRoadCar)
+            {
+                OffRoadCar tempCar = car as OffRoadCar;
+                if (tempCar != null)
+                {
+                    parentApp.HStage.GetPlayer.Funds += (int)((double)tempCar.suspensionBonus * 0.5 * (double)multiplier);
+                    tempCar.suspensionBonus = 0;
+                    alreadyUpgraded = false;
+                    return tempCar.suspensionBonus;
+                }
+                return -1;
+            }
+            return -1;
         }
         public override void EnterButton()
         {
-            ;
+            BuyFrom(parentApp.HStage.GetPlayer.CurrentVehicle);
         }
 
         public override void ESCButton()

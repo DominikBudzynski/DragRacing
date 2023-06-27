@@ -30,7 +30,7 @@ namespace DragRacing.States.ShopStates
             RaceCar tempCar = car as RaceCar;
             if (tempCar != null)
             {
-                if (parentApp.HStage.GetPlayer.Funds >= turboUpgrades[index] * multiplier && alreadyUpgraded == false;)
+                if (parentApp.HStage.GetPlayer.Funds >= turboUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.turboBonus = turboUpgrades[index];
                     parentApp.HStage.GetPlayer.Funds -= (turboUpgrades[index] * multiplier);
@@ -61,6 +61,7 @@ namespace DragRacing.States.ShopStates
 
         public override void EnterButton()
         {
+            //DODAC ZABEZPIECZENIE W RAZIE NIEPOWODZENIA
             BuyFrom(parentApp.HStage.GetPlayer.CurrentVehicle);
         }
 
