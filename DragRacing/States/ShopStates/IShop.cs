@@ -10,7 +10,7 @@ namespace DragRacing.States.ShopStates
 {
     interface IShop
     {
-        public double SellTo(Player customer);
-        public double BuyFrom(Player customer);
+        public double SellTo(IRaceable car, int index);
+        public double BuyFrom(IRaceable car);
     }
 }

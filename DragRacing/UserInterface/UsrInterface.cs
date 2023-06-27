@@ -106,10 +106,11 @@ namespace DragRacing.UserInterface
             Console.WriteLine(
                 "Welcome to engine upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() + 
-                "1.Stock engine\n" +
-                "2.Race engine\n" +
-                "3.Professional engine\n" +
-                "4.Pro engine\n"
+                "Your funds: " + player.Funds.ToString() + "$" +
+                "\n1.Better engine\n" + 
+                "2.Race engine: 100$\n" +
+                "3.Professional engine: 200$\n" +
+                "4.Pro engine: 300$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -141,5 +142,7 @@ namespace DragRacing.UserInterface
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public void TurboPrompt() { }
     }
 }

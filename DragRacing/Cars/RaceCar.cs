@@ -9,8 +9,9 @@ namespace DragRacing.Cars
 {
     class RaceCar : Car
     {
-        private double turbo, turboBonus;
-        private double aerodynamics, aeroBonus;
+        private int turbo;
+        private int aerodynamics;
+        public int turboBonus, aeroBonus;
         Random rnd = new Random();
 
         public RaceCar() : base()
@@ -24,14 +25,6 @@ namespace DragRacing.Cars
         {
             this.turbo = turbo;
             this.aerodynamics = aerodynamics;
-        }
-
-        public override void UpdateBonuses(double engineBonus, double gripBonus, double turboBonus, double aeroBonus)
-        {
-            this.engineBonus = engineBonus;
-            this.gripBonus = gripBonus;
-            this.turboBonus = turboBonus;
-            this.aeroBonus = aeroBonus;
         }
 
         public double Turbo
@@ -60,31 +53,16 @@ namespace DragRacing.Cars
             double time = 0.6 * EnginePower + 0.2 * Grip + 0.4 * Turbo + 0.1 * Aerodynamics;
             double random = rnd.Next(90, 110) / 100.0;
             double result = distance / (0.5 * time * random);
-
-            //DEBUG
-            /*
-            Console.WriteLine("Time = " + time);
-            Console.WriteLine("Random = " + random);
-            Console.WriteLine("Distance = " + distance);
-            Console.WriteLine("Result = " + result);
-            Console.WriteLine();
-            Console.WriteLine("Time * Random = " + (time * random));
-            Console.WriteLine("1/2 * Time * Random = " + ((0.5) * time * random));
-            Console.WriteLine("Distance/result = " + (distance/ ((0.5)* time * random)));
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            */
             return result;
         }
 
         public override string ToString()
         {
             return model +
-                " Engine power: " + enginePower.ToString() +
-                " Grip: " + grip +
-                " Turbocharge: " + turbo +
-                " Aerodynamics: " + aerodynamics + "\n";
+                " Engine power: " + EnginePower.ToString() +
+                " Grip: " + Grip +
+                " Turbocharge: " + Turbo +
+                " Aerodynamics: " + Aerodynamics + "\n";
         }
 
     }

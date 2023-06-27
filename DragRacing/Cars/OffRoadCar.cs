@@ -11,7 +11,8 @@ namespace DragRacing.Cars
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         private double height;
-        private double suspension, suspBonus;
+        private int suspension;
+        public int suspensionBonus;
 
         public OffRoadCar() : base()
         {
@@ -19,7 +20,7 @@ namespace DragRacing.Cars
             suspension = 0;
         }
 
-        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model, int shopPrize) :
+        public OffRoadCar(double enginePower, double grip, int gearBox, double height, int suspension, string model, int shopPrize) :
                      base(enginePower, grip, gearBox, model, shopPrize)
         {
             this.height = height;
@@ -35,7 +36,7 @@ namespace DragRacing.Cars
             }
         }
 
-        public double Suspension
+        public int Suspension
         {
             get { return (suspension + suspBonus); }
             set
@@ -55,7 +56,7 @@ namespace DragRacing.Cars
                 " Engine power: " + enginePower +
                 " Grip: " + grip +
                 " Suspension: " + suspension +
-                " chuj wie: " + "\n";
+                " cos dodawtkowo: " + "\n";
         }
     }
 }
