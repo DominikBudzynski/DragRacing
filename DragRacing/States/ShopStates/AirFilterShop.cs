@@ -10,7 +10,7 @@ namespace DragRacing.States.ShopStates
 {
     class AirFilterShop : GameState, IShop
     {
-        private List<int> airFilterUpgrades;
+        private List<double> airFilterUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
@@ -19,8 +19,8 @@ namespace DragRacing.States.ShopStates
         public override void StatePrompt()
         {
             textInterface.SuspensionPrompt(parentApp.HStage.GetPlayer);
-            airFilterUpgrades = new List<int>() { 20, 30, 40, 50 };
-            multiplier = 200;
+            airFilterUpgrades = new List<double>() { 0.5, 1, 1.5, 2 };
+            multiplier = 2000;
             alreadyUpgraded = false;
         }
 
@@ -32,7 +32,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= airFilterUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.airFilterBonus = airFilterUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (airFilterUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(airFilterUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.airFilterBonus;
                 }

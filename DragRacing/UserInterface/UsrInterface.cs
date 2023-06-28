@@ -162,10 +162,10 @@ namespace DragRacing.UserInterface
                 "Welcome to suspension upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "\n1.Better suspension: \n" +
-                "2.Race suspension\n" +
-                "3.Professional suspension\n" +
-                "4.Pro suspension\n"
+                "\n1.Better suspension: 750$\n" +
+                "2.Race suspension: 1500$\n" +
+                "3.Professional suspension: 2250$\n" +
+                "4.Pro suspension: 3000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -207,10 +207,10 @@ namespace DragRacing.UserInterface
                 "Welcome to air filter upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "\n1.Better air filter: \n" +
-                "2.Race air filter\n" +
-                "3.Professional air filter\n" +
-                "4.Pro air filter\n"
+                "\n1.Better air filter: 1000$\n" +
+                "2.Race air filter: 2000$\n" +
+                "3.Professional air filter: 3000$\n" +
+                "4.Pro air filter: 4000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }

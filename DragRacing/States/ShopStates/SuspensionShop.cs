@@ -10,7 +10,7 @@ namespace DragRacing.States.ShopStates
 {
     class SuspensionShop : GameState, IShop
     {
-        private List<int> suspensionUpgrades;
+        private List<double> suspensionUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
@@ -19,8 +19,8 @@ namespace DragRacing.States.ShopStates
         public override void StatePrompt()
         {
             textInterface.SuspensionPrompt(parentApp.HStage.GetPlayer);
-            suspensionUpgrades = new List<int>() { 20, 30, 40, 50 };
-            multiplier = 200;
+            suspensionUpgrades = new List<double>() { 0.75, 1.5, 2.25, 3 };
+            multiplier = 1000;
             alreadyUpgraded = false;
         }
 
@@ -32,7 +32,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= suspensionUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.suspensionBonus = suspensionUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (suspensionUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(suspensionUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.suspensionBonus;
                 }
