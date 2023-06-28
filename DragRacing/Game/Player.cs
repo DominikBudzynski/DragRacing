@@ -8,18 +8,16 @@ using DragRacing.Cars;
 namespace DragRacing.Game
 {
     class Player
-    {
-        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
+    {        
         private List<IRaceable> vehiclesList;
         private IRaceable currVehicle;        
         private int funds;
-
-        //DODAC KONSTRUKTOR PARAMETRYCZNY, DODAC MOZLIWOSC USTAWIANIA NAZWY UZYTKOWNIKA
+        
         public Player()
         {
             vehiclesList = new List<IRaceable>();
             funds = 100000;
-            currVehicle = new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500);
+            currVehicle = new RaceCar(70, 10, 4, 30, 20, "Daewoo Matiz", 5000);
             vehiclesList.Add(currVehicle);
         }
 

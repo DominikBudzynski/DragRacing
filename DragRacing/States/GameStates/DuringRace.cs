@@ -32,6 +32,14 @@ namespace DragRacing.States.GameStates
         }        
         /// /////////////////////////////////////////////////        
         //COS ZROBIC Z DYSTANSEM
+        //DODAC BONUSY ZA PIERWSZY WYSCIG
+        //
+        //ZROBIC OFFROADCAR
+        //
+        //UZGODNIC PRZECIWNIKOW
+        //UZGODNIC WARTOSCI ULEPSZENI CZESCI
+        //UZGODNIC CARDEALERA
+        //
         public override void DigitOne()
         {           
             currentEnemy = 1;

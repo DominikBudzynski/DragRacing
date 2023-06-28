@@ -9,13 +9,13 @@ namespace DragRacing.States.ShopStates
 {
     class TireShop : GameState, IShop
     {
-        private List<int> tireUpgrades;
+        private List<double> tireUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
         public TireShop(Game.Game game) : base(game)
         {
-            tireUpgrades = new List<int>() { 10, 20, 30, 40 };
+            tireUpgrades = new List<double>() { 0.5, 1, 1.5, 2 };
             multiplier = 200;
             alreadyUpgraded = false;
         }
@@ -33,7 +33,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= tireUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.tireBonus = tireUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (tireUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(tireUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.tireBonus;
                 }

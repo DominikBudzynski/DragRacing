@@ -18,7 +18,7 @@ namespace DragRacing.States.ShopStates
 
         public EngineShop(Game.Game game) : base(game)
         {
-            engineUpgrades = new List<int>() { 10, 20, 30, 40 };
+            engineUpgrades = new List<int>() { 5, 10, 15, 20 };
             multiplier = 200;
             alreadyUpgraded = false;
         }

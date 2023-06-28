@@ -9,13 +9,13 @@ namespace DragRacing.States.ShopStates
 {
     class TurboShop : GameState, IShop
     {
-        private List<int> turboUpgrades;
+        private List<double> turboUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
         public TurboShop(Game.Game game) : base(game)
         {
-            turboUpgrades = new List<int>() { 10, 20, 30, 40 };
+            turboUpgrades = new List<double>() { 0.75,1.5 ,2.25 , 3 };
             multiplier = 200;
             alreadyUpgraded = false;
         }
@@ -33,7 +33,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= turboUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.turboBonus = turboUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (turboUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(turboUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.turboBonus;
                 }
@@ -60,8 +60,7 @@ namespace DragRacing.States.ShopStates
         }
 
         public override void EnterButton()
-        {
-            //DODAC ZABEZPIECZENIE W RAZIE NIEPOWODZENIA
+        {            
             BuyFrom(parentApp.HStage.GetPlayer.CurrentVehicle);
         }
 

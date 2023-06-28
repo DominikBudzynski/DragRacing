@@ -9,13 +9,13 @@ namespace DragRacing.States.ShopStates
 {
     class AerodynamicsShop : GameState, IShop
     {
-        private List<int> aeroUpgrades;
+        private List<double> aeroUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
         public AerodynamicsShop(Game.Game game) : base(game)
         {
-            aeroUpgrades = new List<int>() { 10, 20, 30, 40 };
+            aeroUpgrades = new List<double>() { 0.5, 1, 1.5, 2 };
             multiplier = 200;
             alreadyUpgraded = false;
         }
@@ -33,7 +33,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= aeroUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.aeroBonus = aeroUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (aeroUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(aeroUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.aeroBonus;
                 }

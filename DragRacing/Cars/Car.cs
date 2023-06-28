@@ -10,12 +10,12 @@ namespace DragRacing.Cars
     abstract class Car : IRaceable
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        protected int enginePower;
-        protected int grip;
+        protected double enginePower;
+        protected double grip;
         protected int gearBox;
         protected string model;
         protected int shopPrize;
-        public int engineBonus, tireBonus;
+        public double engineBonus, tireBonus;
 
         public Car()
         {
@@ -24,7 +24,7 @@ namespace DragRacing.Cars
             GearBox = 1;
             model = string.Empty;
         }
-        public Car(int enginePower, int grip, int gearBox, string model, int shopPrize)
+        public Car(double enginePower, double grip, int gearBox, string model, int shopPrize)
         {
             this.enginePower = enginePower;
             this.grip = grip;
@@ -33,7 +33,7 @@ namespace DragRacing.Cars
             this.shopPrize = shopPrize;
         }
 
-        public int EnginePower
+        public double EnginePower
         {
             get { return (enginePower + engineBonus); }
             set
@@ -43,7 +43,7 @@ namespace DragRacing.Cars
             }
         }
 
-        public int Grip
+        public double Grip
         {
             get { return (grip + tireBonus); }
             set

@@ -18,10 +18,10 @@ namespace DragRacing
             StageInitializer stageInit = new StageInitializer();
 
             List <Stage> stages = new List <Stage>();
-            stages.Add(stageInit.InitStage(1));
-            stages.Add(stageInit.InitStage(2));
-            stages.Add(stageInit.InitStage(3));
-            stages.Add(stageInit.InitStage(4));
+            stages.Add(stageInit.InitStage1());
+            stages.Add(stageInit.InitStage2());
+            stages.Add(stageInit.InitStage3());
+            stages.Add(stageInit.InitStage4());
 
             StageHandler hStage = new StageHandler(stages);
             game.HStage = hStage;
