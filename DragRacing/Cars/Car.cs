@@ -11,8 +11,7 @@ namespace DragRacing.Cars
     {
         //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
         protected double enginePower;
-        protected double grip;
-        protected int gearBox;
+        protected double grip;        
         protected string model;
         protected int shopPrize;
         public double engineBonus, tireBonus;
@@ -26,8 +25,7 @@ namespace DragRacing.Cars
         public Car(double enginePower, double grip, string model, int shopPrize)
         {
             this.enginePower = enginePower;
-            this.grip = grip;
-            this.gearBox = gearBox;
+            this.grip = grip;            
             this.model = model;
             this.shopPrize = shopPrize;
         }

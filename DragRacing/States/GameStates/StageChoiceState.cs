@@ -44,7 +44,12 @@ namespace DragRacing.States.GameStates
         {
             parentApp.ChangeState(new DuringRace(parentApp, 4));
         }
-        public override void DigitFive() { }
+
+        public override void DigitFive()
+        {
+            parentApp.ChangeState(new Multiplayer.MultiplayerState(parentApp));
+        }
+
         public override void DigitSix() { }
         public override void DigitSeven() { }
     }

@@ -73,6 +73,7 @@ namespace DragRacing.UserInterface
                 "2.Stage 2\n" +
                 "3.Stage 3\n" +
                 "4.Stage 4\n" +
+                "5.Multiplayer\n" +
                 "Press ESC to back to main menu"
                 );
         }
@@ -247,6 +248,30 @@ namespace DragRacing.UserInterface
                     "Gained Experience: 0 Gained cash: 0$ \nPress Return to back to the stage choice.");
             }
             Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        //MULTIPLAYER
+
+        public void MultiplayerPrompt()
+        {
+            Console.WriteLine(
+                "Welcome to multiplayer mode.\n" +
+                "1.Host new game\n" +
+                "2.Connect to existing game\n" + 
+                "Press ESC to go back\n");
+        }
+
+        public void ServerPrompt()
+        {
+            Console.Clear();
+            Console.WriteLine(
+                "You are hosting a server right now.\n" +
+                "Waiting for the opponent."
+                );            
+        }
+        public void ServerResposnePrompt(string arg)
+        {
+            Console.WriteLine(arg);
         }
     }
 }
