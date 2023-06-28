@@ -14,18 +14,25 @@ namespace DragRacing.States.Multiplayer
     {
         private Server server;
         private Client client;
-        bool clientOn, serverOn, afterRace;
+        bool clientOn, serverOn, afterRace, ifWon;
 
-        public MultiplayerState(Game.Game game) : base(game) { }
-
-        public override void StatePrompt()
+        public MultiplayerState(Game.Game game) : base(game)
         {
-            textInterface.MultiplayerPrompt();
             server = new Server();
             client = new Client();
             serverOn = false;
             clientOn = false;
             afterRace = false;
+            ifWon = false;
+        }
+
+        public override void StatePrompt()
+        {
+            if (!afterRace)
+                textInterface.MultiplayerPrompt();
+            else
+                textInterface.MultiplayerRaceResult(ifWon);
+
         }
 
         public override void DigitOne()
@@ -44,9 +51,9 @@ namespace DragRacing.States.Multiplayer
                 server.ListenToClient();
                 if (server.EvaluateMultiplayerRace(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500)))
                 {
-                    textInterface.MultiplayerRaceResult(true);
-                    afterRace = true;
+                    ifWon = true;                    
                 }
+                afterRace = true;
             }
             catch (Exception e)
             {
