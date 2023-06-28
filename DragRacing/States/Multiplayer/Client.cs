@@ -36,5 +36,11 @@ namespace DragRacing.States.Multiplayer
             stream.Write(transmitBuffer, 0, transmitBuffer.Length);
             return "Data sent correctly";
         }
+
+        public void CloseClient()
+        {
+            SendData(0.01);
+            client.Close();
+        }
     }
 }

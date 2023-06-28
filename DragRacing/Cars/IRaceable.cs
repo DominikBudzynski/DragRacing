@@ -9,6 +9,7 @@ namespace DragRacing.Cars
     interface IRaceable
     {
         double Accelerate(double distance, List<double> bonus);
+        double Accelerate(double distance);
         int ShopPrize();
 
         string ToString();

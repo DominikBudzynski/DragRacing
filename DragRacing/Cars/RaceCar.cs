@@ -48,6 +48,14 @@ namespace DragRacing.Cars
             }
         }
 
+        public override double Accelerate(double distance)
+        {
+            double time = 0.6 * EnginePower + 0.2 * Grip + 0.4 * Turbo + 0.1 * Aerodynamics;
+            double random = rnd.Next(90, 110) / 100.0;
+            double result = (distance / (0.5 * time * random));
+            return result;
+        }
+
         public override double Accelerate(double distance, List<double> bonus)
         {
             double time = 0.6 * EnginePower + 0.2 * Grip + 0.4 * Turbo + 0.1 * Aerodynamics;

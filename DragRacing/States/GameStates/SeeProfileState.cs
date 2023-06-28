@@ -56,7 +56,8 @@ namespace DragRacing.States.GameStates
             if (parentApp.HStage.GetPlayer.PlayerVehicles.Count > 0)
             {
                 parentApp.HStage.GetPlayer.Funds += (int)(0.6 * (double)parentApp.HStage.GetPlayer.PlayerVehicles[highlightedElement - 1].ShopPrize());
-                parentApp.HStage.GetPlayer.PlayerVehicles.RemoveAt(highlightedElement - 1);                
+                parentApp.HStage.GetPlayer.PlayerVehicles.RemoveAt(highlightedElement - 1);
+                parentApp.HStage.GetPlayer.CurrentVehicle = null;
             }
                 
         }

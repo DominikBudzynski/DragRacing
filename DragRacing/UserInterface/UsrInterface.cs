@@ -269,9 +269,28 @@ namespace DragRacing.UserInterface
                 "Waiting for the opponent."
                 );            
         }
+
         public void ServerResposnePrompt(string arg)
         {
             Console.WriteLine(arg);
+        }
+
+        public void MultiplayerRaceResult(bool ifWon)
+        {
+            if (ifWon)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("You has won!\n" +
+                    "\nGained cash: DO ZROBIENIA" +                    
+                    "$\nPress Return to back to the stage choice.");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You lose!\n" +
+                    "Gained cash: 0$ \nPress Return to back to the stage choice.");
+            }
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

@@ -52,6 +52,7 @@ namespace DragRacing.Cars
 
         public int ShopPrize() => shopPrize;
         public abstract double Accelerate(double distance, List<double> bonus);
+        public abstract double Accelerate(double distance);
 
         public override string ToString()
         {

@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
+using DragRacing.Game;
 using DragRacing.States.GameStates;
 
 namespace DragRacing.States.Multiplayer
@@ -13,6 +14,7 @@ namespace DragRacing.States.Multiplayer
     {
         private Server server;
         private Client client;
+        bool clientOn, serverOn, afterRace;
 
         public MultiplayerState(Game.Game game) : base(game) { }
 
@@ -21,24 +23,44 @@ namespace DragRacing.States.Multiplayer
             textInterface.MultiplayerPrompt();
             server = new Server();
             client = new Client();
+            serverOn = false;
+            clientOn = false;
+            afterRace = false;
         }
 
         public override void DigitOne()
         {
-            //postawic serwer
-            textInterface.ServerPrompt();
-            textInterface.ServerResposnePrompt(server.StartServer());            
-            if (server.ListenForClient())
+            //CZY TO EXCEPTION NA PEWNO POTRZEBNE??
+            serverOn = true;
+            try
             {
-                textInterface.ServerResposnePrompt("Opponent connected\n");
+                //postawic serwer
+                textInterface.ServerPrompt();
+                textInterface.ServerResposnePrompt(server.StartServer());
+                if (server.ListenForClient())
+                {
+                    textInterface.ServerResposnePrompt("Opponent connected\n");
+                }                
+                server.ListenToClient();
+                if (server.EvaluateMultiplayerRace(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500)))
+                {
+                    textInterface.MultiplayerRaceResult(true);
+                    afterRace = true;
+                }
             }
-
-            server.ListenToClient();
+            catch (Exception e)
+            {
+                textInterface.ServerResposnePrompt("An error occurred: " + e.Message);                
+            }
             
         }
         public override void DigitTwo()
         {
+            //WYSWIETLIC PROMPTA ZE NP OCZEKIWANIE NA INNEGO GRACZA
+            //WYSWIETLENIE WYNIKU
+            clientOn = true;
             client.Connect();
+            client.SendData(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
             Console.ReadKey();
         }
         public override void DigitThree() { }
@@ -46,9 +68,16 @@ namespace DragRacing.States.Multiplayer
         public override void DigitFive() { }
         public override void DigitSix() { }
         public override void DigitSeven() { }
-        public override void EnterButton() { }
+        public override void EnterButton()
+        {
+            afterRace = false;
+        }
         public override void ESCButton()
         {
+            if (serverOn)
+                server.CloseServer();
+            else if (clientOn)
+                client.CloseClient();
             parentApp.ChangeState(new StageChoiceState(parentApp));
         }
     }
