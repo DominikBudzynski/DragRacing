@@ -16,7 +16,7 @@ namespace DragRacing.States.ShopStates
         public TireShop(Game.Game game) : base(game)
         {
             tireUpgrades = new List<double>() { 0.5, 1, 1.5, 2 };
-            multiplier = 200;
+            multiplier = 1000;
             alreadyUpgraded = false;
         }
 

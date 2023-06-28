@@ -19,7 +19,7 @@ namespace DragRacing.States.ShopStates
         public EngineShop(Game.Game game) : base(game)
         {
             engineUpgrades = new List<int>() { 5, 10, 15, 20 };
-            multiplier = 200;
+            multiplier = 400;
             alreadyUpgraded = false;
         }
 
@@ -36,7 +36,7 @@ namespace DragRacing.States.ShopStates
                 if (parentApp.HStage.GetPlayer.Funds >= engineUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
                     tempCar.engineBonus = engineUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (engineUpgrades[index] * multiplier);
+                    parentApp.HStage.GetPlayer.Funds -= (int)(engineUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
                     return tempCar.engineBonus;
                 }

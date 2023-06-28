@@ -22,18 +22,18 @@ namespace DragRacing.Game
 
             //track bonuses init
             List<List<int>> bonuses = new List<List<int>>();
-            bonuses.Add(new List<int>() { 100 });
-            bonuses.Add(new List<int>() { 100 });
-            bonuses.Add(new List<int>() { 100 });
-            bonuses.Add(new List<int>() { 100 });
+            bonuses.Add(new List<int>() { 100, 100 });
+            bonuses.Add(new List<int>() { 100, 100 });
+            bonuses.Add(new List<int>() { 100, 100 });
+            bonuses.Add(new List<int>() { 100, 100 });
 
             //track prizes init
             //money and exp
             List<List<int>> prizes = new List<List<int>>();
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
+            prizes.Add(new List<int>() { 100 });
+            prizes.Add(new List<int>() { 200 });
+            prizes.Add(new List<int>() { 500 });
+            prizes.Add(new List<int>() { 1000 });
             
             stage.StageEnemies = enemies;
             stage.StageTracks = bonuses;

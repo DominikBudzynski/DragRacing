@@ -131,10 +131,10 @@ namespace DragRacing.UserInterface
                 "Welcome to engine upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() + 
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "\n1.Better engine\n" + 
-                "2.Race engine: 100$\n" +
-                "3.Professional engine: 200$\n" +
-                "4.Pro engine: 300$\n"
+                "\n1.Better engine: 2000$\n" + 
+                "2.Race engine: 4000$\n" +
+                "3.Professional engine: 6000$\n" +
+                "4.Pro engine: 8000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -146,10 +146,10 @@ namespace DragRacing.UserInterface
                 "Welcome to tires upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "1.Better tires\n" +
-                "2.Race tires\n" +
-                "3.Professional tires\n" +
-                "4.Pro tires\n"
+                "\n1.Better tires: 500$\n" +
+                "2.Race tires: 1000$\n" +
+                "3.Professional tires: 1500$ \n" +
+                "4.Pro tires: 2000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -161,7 +161,7 @@ namespace DragRacing.UserInterface
                 "Welcome to suspension upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "1.Stock suspension\n" +
+                "\n1.Better suspension: \n" +
                 "2.Race suspension\n" +
                 "3.Professional suspension\n" +
                 "4.Pro suspension\n"
@@ -176,10 +176,10 @@ namespace DragRacing.UserInterface
                 "Welcome to engine upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "\n1.Better turbo\n" +
-                "2.Race turbo: 100$\n" +
-                "3.Professional turbo: 200$\n" +
-                "4.Pro turbo: 300$\n"
+                "\n1.Better turbo: 750$\n" +
+                "2.Race turbo: 1500$\n" +
+                "3.Professional turbo: 2250$\n" +
+                "4.Pro turbo: 3000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -191,10 +191,10 @@ namespace DragRacing.UserInterface
                 "Welcome to engine upgrade\n" +
                 "Your car: " + player.CurrentVehicle.ToString() +
                 "Your funds: " + player.Funds.ToString() + "$" +
-                "\n1.Better aerodynamics\n" +
-                "2.Race aerodynamics: 100$\n" +
-                "3.Professional aerodynamics: 200$\n" +
-                "4.Pro aerodynamics: 300$\n"
+                "\n1.Better aerodynamics: 1000$\n" +
+                "2.Race aerodynamics: 2000$\n" +
+                "3.Professional aerodynamics: 3000$\n" +
+                "4.Pro aerodynamics: 4000$\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -221,7 +221,7 @@ namespace DragRacing.UserInterface
                 Console.ForegroundColor= ConsoleColor.Green;
                 Console.WriteLine("You has won!\n" +
                     "\nGained cash: " +
-                    stage.TrackPrizes[enemy - 1][1].ToString() +
+                    stage.TrackPrizes[enemy - 1][0].ToString() +
                     "$\nPress Return to back to the stage choice.");
             }
             else

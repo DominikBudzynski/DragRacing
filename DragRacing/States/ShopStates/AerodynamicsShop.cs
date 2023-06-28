@@ -16,7 +16,7 @@ namespace DragRacing.States.ShopStates
         public AerodynamicsShop(Game.Game game) : base(game)
         {
             aeroUpgrades = new List<double>() { 0.5, 1, 1.5, 2 };
-            multiplier = 200;
+            multiplier = 2000;
             alreadyUpgraded = false;
         }
 

@@ -16,7 +16,7 @@ namespace DragRacing.States.ShopStates
         public TurboShop(Game.Game game) : base(game)
         {
             turboUpgrades = new List<double>() { 0.75,1.5 ,2.25 , 3 };
-            multiplier = 200;
+            multiplier = 1000;
             alreadyUpgraded = false;
         }
 
