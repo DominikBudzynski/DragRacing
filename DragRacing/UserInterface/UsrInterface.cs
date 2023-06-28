@@ -214,19 +214,21 @@ namespace DragRacing.UserInterface
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public void RaceResults(bool ifWon)
+        public void RaceResults(bool ifWon, Stage stage, int enemy)
         {
             if (ifWon)
             {
                 Console.ForegroundColor= ConsoleColor.Green;
                 Console.WriteLine("You has won!\n" +
-                    "Gained Experience: Gained cash: \nPress Return to back to the stage choice.");
+                    "\nGained cash: " +
+                    stage.TrackPrizes[enemy - 1][1].ToString() +
+                    "$\nPress Return to back to the stage choice.");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You lose!\n" +
-                    "Gained Experience: Gained cash: \nPress Return to back to the stage choice.");
+                    "Gained Experience: 0 Gained cash: 0$ \nPress Return to back to the stage choice.");
             }
             Console.ForegroundColor = ConsoleColor.White;
         }

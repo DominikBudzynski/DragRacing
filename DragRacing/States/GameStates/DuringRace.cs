@@ -8,7 +8,7 @@ namespace DragRacing.States.GameStates
 {
     class DuringRace : GameState
     {
-        int currentStage;
+        int currentStage, currentEnemy;
         bool afterRace, ifWon;
 
         public DuringRace(Game.Game game, int stage) : base(game)
@@ -26,52 +26,50 @@ namespace DragRacing.States.GameStates
             }
             else
             {
-                textInterface.RaceResults(ifWon);
+                textInterface.RaceResults(ifWon, parentApp.HStage.GetStages[currentStage - 1], currentEnemy);
             }
             
         }        
         /// /////////////////////////////////////////////////        
         //COS ZROBIC Z DYSTANSEM
-        //ZROBIC BONUSY (IDENTYFIKACJA TEGO KTORY WYSCIG JEST AKTUALNIE ROZGRYWANY)
-        //
         public override void DigitOne()
-        {
-            //wyscig z 1 se stage
-            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
-                                          parentApp.HStage.GetStages[currentStage - 1].StageEnemies[0]);
+        {           
+            currentEnemy = 1;
+            ifWon = parentApp.HStage.EvaluateRace(currentStage, currentEnemy);
+            parentApp.HStage.UpdatePlayer(currentStage, currentEnemy);         
             afterRace = true;
 
         }
         public override void DigitTwo()
         {
-            //wyscig z 2 se stage
-            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
-                                          parentApp.HStage.GetStages[currentStage - 1].StageEnemies[1]);
+            currentEnemy = 2;
+            ifWon = parentApp.HStage.EvaluateRace(currentStage, currentEnemy);
+            parentApp.HStage.UpdatePlayer(currentStage, currentEnemy);           
             afterRace = true;
         }
         public override void DigitThree()
         {
-            //wyscig z 3 se stage
-            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
-                                          parentApp.HStage.GetStages[currentStage - 1].StageEnemies[2]);
+            currentEnemy = 3;
+            ifWon = parentApp.HStage.EvaluateRace(currentStage, currentEnemy);
+            parentApp.HStage.UpdatePlayer(currentStage, currentEnemy);         
             afterRace = true;
         }
         public override void DigitFour()
         {
-            //wyscig z 4 se stage
-            ifWon = parentApp.HStage.EvaluateRace(parentApp.HStage.GetPlayer.CurrentVehicle, 
-                                          parentApp.HStage.GetStages[currentStage - 1].StageEnemies[3]);
+            currentEnemy = 4;
+            ifWon = parentApp.HStage.EvaluateRace(currentStage, currentEnemy);
+            parentApp.HStage.UpdatePlayer(currentStage, currentEnemy);      
             afterRace = true;
         }
         public override void DigitFive() { }
         public override void DigitSix() { }
         public override void ESCButton()
         {
-            parentApp.ChangeState(new StageChoiceState(parentApp));
+            if (!afterRace)
+                parentApp.ChangeState(new StageChoiceState(parentApp));
         }
         public override void EnterButton()
         {
-            //jesli po wyscigu to ma kasowac ekran konca wyscigu
             afterRace = false;
         }
 

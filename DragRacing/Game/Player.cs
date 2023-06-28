@@ -13,14 +13,12 @@ namespace DragRacing.Game
         private List<IRaceable> vehiclesList;
         private IRaceable currVehicle;        
         private int funds;
-        private int experience;
 
         //DODAC KONSTRUKTOR PARAMETRYCZNY, DODAC MOZLIWOSC USTAWIANIA NAZWY UZYTKOWNIKA
         public Player()
         {
             vehiclesList = new List<IRaceable>();
             funds = 100000;
-            experience = 0;
             currVehicle = new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500);
             vehiclesList.Add(currVehicle);
         }
@@ -35,12 +33,6 @@ namespace DragRacing.Game
         {
             get { return funds; }
             set { if (value > 0) funds = value; }
-        }
-
-        public int Experience
-        {
-            get { return experience; }
-            set { experience = value; }
         }
 
         public void AddCar(IRaceable car)
