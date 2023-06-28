@@ -88,6 +88,7 @@ namespace DragRacing.UserInterface
                 "4.Turbo upgrade\n" +
                 "5.Aerodynamics upgrade\n" +
                 "6.Suspension upgrade\n" +
+                "7.Air filter upgrade\n" +
                 "Press ESC to back to main menu"
                 );
         }
@@ -195,6 +196,21 @@ namespace DragRacing.UserInterface
                 "2.Race aerodynamics: 2000$\n" +
                 "3.Professional aerodynamics: 3000$\n" +
                 "4.Pro aerodynamics: 4000$\n"
+                );
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public void AirFilterPrompt(Player player)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(
+                "Welcome to air filter upgrade\n" +
+                "Your car: " + player.CurrentVehicle.ToString() +
+                "Your funds: " + player.Funds.ToString() + "$" +
+                "\n1.Better air filter: \n" +
+                "2.Race air filter\n" +
+                "3.Professional air filter\n" +
+                "4.Pro air filter\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
         }

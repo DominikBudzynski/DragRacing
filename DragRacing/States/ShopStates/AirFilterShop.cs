@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace DragRacing.States.ShopStates
 {
-    class SuspensionShop : GameState, IShop
+    class AirFilterShop : GameState, IShop
     {
-        private List<int> suspensionUpgrades;
+        private List<int> airFilterUpgrades;
         private int multiplier;
         private bool alreadyUpgraded;
 
-        public SuspensionShop(Game.Game game) : base(game) { }
+        public AirFilterShop(Game.Game game) : base(game) { }
 
         public override void StatePrompt()
         {
             textInterface.SuspensionPrompt(parentApp.HStage.GetPlayer);
-            suspensionUpgrades = new List<int>() { 20, 30, 40, 50 };
+            airFilterUpgrades = new List<int>() { 20, 30, 40, 50 };
             multiplier = 200;
             alreadyUpgraded = false;
         }
@@ -29,14 +29,14 @@ namespace DragRacing.States.ShopStates
             OffRoadCar tempCar = car as OffRoadCar;
             if (tempCar != null)
             {
-                if (parentApp.HStage.GetPlayer.Funds >= suspensionUpgrades[index] * multiplier && alreadyUpgraded == false)
+                if (parentApp.HStage.GetPlayer.Funds >= airFilterUpgrades[index] * multiplier && alreadyUpgraded == false)
                 {
-                    tempCar.suspensionBonus = suspensionUpgrades[index];
-                    parentApp.HStage.GetPlayer.Funds -= (suspensionUpgrades[index] * multiplier);
+                    tempCar.airFilterBonus = airFilterUpgrades[index];
+                    parentApp.HStage.GetPlayer.Funds -= (airFilterUpgrades[index] * multiplier);
                     alreadyUpgraded = true;
-                    return tempCar.suspensionBonus;
+                    return tempCar.airFilterBonus;
                 }
-                return 0;                
+                return 0;
             }
             else return 0;
         }
@@ -48,10 +48,10 @@ namespace DragRacing.States.ShopStates
                 OffRoadCar tempCar = car as OffRoadCar;
                 if (tempCar != null)
                 {
-                    parentApp.HStage.GetPlayer.Funds += (int)((double)tempCar.suspensionBonus * 0.5 * (double)multiplier);
-                    tempCar.suspensionBonus = 0;
+                    parentApp.HStage.GetPlayer.Funds += (int)((double)tempCar.airFilterBonus * 0.5 * (double)multiplier);
+                    tempCar.airFilterBonus = 0;
                     alreadyUpgraded = false;
-                    return tempCar.suspensionBonus;
+                    return tempCar.airFilterBonus;
                 }
                 return -1;
             }

@@ -10,13 +10,13 @@ namespace DragRacing.Game
     class Stage
     {
         private List<IRaceable> stageEnemies;
-        private List<List<int>> stageTracks;
+        private List<List<double>> stageTracks;
         private List<List<int>> trackPrizes;
 
         public Stage()
         {
             stageEnemies = new List<IRaceable>();
-            stageTracks = new List<List<int>>();
+            stageTracks = new List<List<double>>();
             trackPrizes = new List<List<int>>();
         }
 
@@ -26,7 +26,7 @@ namespace DragRacing.Game
             set { stageEnemies = value; }
         }
 
-        public List<List<int>> StageTracks
+        public List<List<double>> StageTracks
         {
             get { return stageTracks; }
             set { stageTracks = value; }

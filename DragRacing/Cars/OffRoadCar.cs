@@ -8,31 +8,31 @@ using System.Threading.Tasks;
 namespace DragRacing.Cars
 {
     internal class OffRoadCar : Car
-    {
-        //USTAWIC ODPOWIEDNIE WARTOSCI W SETACH ITD
-        private double height;
+    {        
+        Random rnd = new Random();
+        private double airFilter;
         private double suspension;
-        public double suspensionBonus;
+        public double suspensionBonus, airFilterBonus;
 
         public OffRoadCar() : base()
         {
-            height = 0;
+            airFilter = 0;
             suspension = 0;
         }
 
-        public OffRoadCar(double enginePower, double grip, int gearBox, double height, double suspension, string model, int shopPrize) :
-                     base(enginePower, grip, gearBox, model, shopPrize)
+        public OffRoadCar(double enginePower, double grip, double height, double suspension, string model, int shopPrize) :
+                     base(enginePower, grip, model, shopPrize)
         {
-            this.height = height;
+            this.airFilter = height;
             this.suspension = suspension;
         }
 
-        public double Height
+        public double AirFilter
         {
-            get { return height; }
+            get { return airFilter; }
             set
             {
-                if (value > 0) height = value;
+                if (value > 0) airFilter = value;
             }
         }
 
@@ -45,9 +45,12 @@ namespace DragRacing.Cars
             }
         }
 
-        public override double Accelerate(double distance)
+        public override double Accelerate(double distance, List<double> bonus)
         {
-            return 0;
+            double time = 0.6 * EnginePower + 0.2 * Grip + 0.4 * Suspension + 0.1 * AirFilter;
+            double random = rnd.Next(90, 110) / 100.0;
+            double result = bonus[1] * (distance / (0.5 * time * random));
+            return result;
         }
 
         public override string ToString()

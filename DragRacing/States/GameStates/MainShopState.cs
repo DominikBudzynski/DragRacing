@@ -71,5 +71,15 @@ namespace DragRacing.States.GameStates
                 parentApp.ChangeState(new SuspensionShop(parentApp));
             }
         }
+
+        public override void DigitSeven()
+        {
+            if (parentApp.HStage.GetPlayer.CurrentVehicle != null)
+            {
+                parentApp.ChangeState(new AirFilterShop(parentApp));
+            }
+        }
+        public override void DigitSeven() { }
+
     }
 }

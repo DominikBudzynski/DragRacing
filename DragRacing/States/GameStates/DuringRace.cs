@@ -37,7 +37,6 @@ namespace DragRacing.States.GameStates
         //ZROBIC OFFROADCAR
         //
         //UZGODNIC PRZECIWNIKOW
-        //UZGODNIC WARTOSCI ULEPSZENI CZESCI
         //UZGODNIC CARDEALERA
         //
         public override void DigitOne()
@@ -71,6 +70,8 @@ namespace DragRacing.States.GameStates
         }
         public override void DigitFive() { }
         public override void DigitSix() { }
+        public override void DigitSeven() { }
+
         public override void ESCButton()
         {
             if (!afterRace)

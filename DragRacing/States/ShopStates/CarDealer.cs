@@ -16,8 +16,8 @@ namespace DragRacing.States.ShopStates
         public CarDealer(Game.Game game) : base(game)
         {
             cars = new List<IRaceable>();            
-            cars.Add(new RaceCar(70, 10, 4, 30, 20, "Lanos", 6500));
-            cars.Add(new RaceCar(80, 10, 3, 30, 20, "Nubira", 8300));
+            cars.Add(new RaceCar(70, 10, 30, 20, "Lanos", 6500));
+            cars.Add(new RaceCar(80, 10, 30, 20, "Nubira", 8300));
         }
 
         public override void UpdateGame()
@@ -80,5 +80,6 @@ namespace DragRacing.States.ShopStates
         public override void DigitFour() { }
         public override void DigitFive() { }
         public override void DigitSix() { }
+        public override void DigitSeven() { }
     }
 }

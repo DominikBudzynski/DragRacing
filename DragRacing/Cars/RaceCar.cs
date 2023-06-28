@@ -20,8 +20,8 @@ namespace DragRacing.Cars
             aerodynamics = 1;
         }
 
-        public RaceCar(int enginePower, int grip, int gearBox, int turbo, int aerodynamics, string model, int shopPrize) :
-                  base(enginePower, grip, gearBox, model, shopPrize)
+        public RaceCar(int enginePower, int grip, int turbo, int aerodynamics, string model, int shopPrize) :
+                  base(enginePower, grip, model, shopPrize)
         {
             this.turbo = turbo;
             this.aerodynamics = aerodynamics;
@@ -48,11 +48,11 @@ namespace DragRacing.Cars
             }
         }
 
-        public override double Accelerate(double distance)
+        public override double Accelerate(double distance, List<double> bonus)
         {
             double time = 0.6 * EnginePower + 0.2 * Grip + 0.4 * Turbo + 0.1 * Aerodynamics;
             double random = rnd.Next(90, 110) / 100.0;
-            double result = distance / (0.5 * time * random);
+            double result = bonus[0] * (distance / (0.5 * time * random));
             return result;
         }
 

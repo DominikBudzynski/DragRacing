@@ -14,25 +14,25 @@ namespace DragRacing.Game
             Stage stage = new Stage();
             //stage enemies init
             List<IRaceable> enemies = new List<IRaceable>() {
-                new RaceCar(80, 12, 4, 32, 24, "Toyota Celica", 6500),
-                new RaceCar(90, 14, 4, 34, 28, "Honda Civic", 100),
-                new RaceCar(100, 16, 4, 36, 32, "Mercedes W123", 100),
-                new RaceCar(110, 18, 4, 38, 36, "Daewoo Lanos", 100)
+                new RaceCar(80, 12, 32, 24, "Toyota Celica", 6500),
+                new RaceCar(90, 14, 34, 28, "Honda Civic", 100),
+                new RaceCar(100, 16, 36, 32, "Mercedes W123", 100),
+                new RaceCar(110, 18, 38, 36, "Daewoo Lanos", 100)
             };            
 
             //track bonuses init
-            List<List<int>> bonuses = new List<List<int>>();
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
+            List<List<double>> bonuses = new List<List<double>>();
+            bonuses.Add(new List<double>() { 1.02, 1 });
+            bonuses.Add(new List<double>() { 1.02, 1 });
+            bonuses.Add(new List<double>() { 1.02, 1 });
+            bonuses.Add(new List<double>() { 1.02, 1 });
 
             //track prizes init
             //money and exp
             List<List<int>> prizes = new List<List<int>>();
-            prizes.Add(new List<int>() { 100 });
             prizes.Add(new List<int>() { 200 });
-            prizes.Add(new List<int>() { 500 });
+            prizes.Add(new List<int>() { 400 });
+            prizes.Add(new List<int>() { 600 });
             prizes.Add(new List<int>() { 1000 });
             
             stage.StageEnemies = enemies;
@@ -45,26 +45,26 @@ namespace DragRacing.Game
             Stage stage = new Stage();
             //stage enemies init
             List<IRaceable> enemies = new List<IRaceable>() {
-                new RaceCar(120, 20, 4, 40, 40, "Lanos1", 6500),
-                new RaceCar(130, 22, 4, 42, 44, "LANOS2", 100),
-                new RaceCar(140, 24, 4, 44, 48, "LANOS3", 100),
-                new RaceCar(150, 26, 4, 46, 52, "LANOS4", 100)
+                new RaceCar(120, 20, 40, 40, "Volkswagen Passat", 6500),
+                new RaceCar(130, 22, 42, 44, "Daewoo Tico", 100),
+                new RaceCar(140, 24, 44, 48, "Audi 80", 100),
+                new RaceCar(150, 26, 46, 52, "Renault 5", 100)
             };
 
             //track bonuses init
-            List<List<int>> bonuses = new List<List<int>>();
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 00 });
-            bonuses.Add(new List<int>() { 100, 100 });
+            List<List<double>> bonuses = new List<List<double>>();
+            bonuses.Add(new List<double>() { 1, 1 });
+            bonuses.Add(new List<double>() { 1, 1 });
+            bonuses.Add(new List<double>() { 1, 1 });
+            bonuses.Add(new List<double>() { 1, 1 });
 
             //track prizes init
             //money and exp
             List<List<int>> prizes = new List<List<int>>();
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
+            prizes.Add(new List<int>() { 1200 });
+            prizes.Add(new List<int>() { 1400 });
+            prizes.Add(new List<int>() { 1700 });
+            prizes.Add(new List<int>() { 2000 });
 
             stage.StageEnemies = enemies;
             stage.StageTracks = bonuses;
@@ -76,26 +76,26 @@ namespace DragRacing.Game
             Stage stage = new Stage();
             //stage enemies init
             List<IRaceable> enemies = new List<IRaceable>() {
-                new RaceCar(165, 29, 4, 49, 58, "Lanos1", 6500),
-                new RaceCar(180, 32, 4, 52, 64, "LANOS2", 100),
-                new RaceCar(195, 35, 4, 55, 70, "LANOS3", 100),
-                new RaceCar(210, 38, 4, 58, 76, "LANOS4", 100)
+                new OffRoadCar(165, 29, 49, 58, "Ford Bronco", 6500),
+                new OffRoadCar(180, 32, 52, 64, "Toyota RAV4", 100),
+                new OffRoadCar(195, 35, 55, 70, "Suzuki Jimny", 100),
+                new OffRoadCar(210, 38, 58, 76, "Jeep Wrangler", 100)
             };
 
             //track bonuses init
-            List<List<int>> bonuses = new List<List<int>>();
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 00 });
-            bonuses.Add(new List<int>() { 100, 100 });
+            List<List<double>> bonuses = new List<List<double>>();
+            bonuses.Add(new List<double>() { 0.98, 1.02 });
+            bonuses.Add(new List<double>() { 0.98, 1.02 });
+            bonuses.Add(new List<double>() { 0.98, 1.02 });
+            bonuses.Add(new List<double>() { 0.98, 1.02 });
 
             //track prizes init
             //money and exp
             List<List<int>> prizes = new List<List<int>>();
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
+            prizes.Add(new List<int>() { 2200 });
+            prizes.Add(new List<int>() { 2500 });
+            prizes.Add(new List<int>() { 2700 });
+            prizes.Add(new List<int>() { 3000 });
 
             stage.StageEnemies = enemies;
             stage.StageTracks = bonuses;
@@ -107,26 +107,26 @@ namespace DragRacing.Game
             Stage stage = new Stage();
             //stage enemies init
             List<IRaceable> enemies = new List<IRaceable>() {
-                new RaceCar(225, 41, 4, 61, 82, "Lanos1", 6500),
-                new RaceCar(245, 45, 4, 65, 90, "LANOS2", 100),
-                new RaceCar(265, 49, 4, 69, 98, "LANOS3", 100),
-                new RaceCar(285, 53, 4, 73, 106, "LANOS4", 100)
+                new RaceCar(225, 41, 61, 82, "Lamborghini Countach", 6500),
+                new RaceCar(245, 45, 65, 90, "Pagani Zonda F", 100),
+                new RaceCar(265, 49, 69, 98, "Ferrari F40", 100),
+                new RaceCar(285, 53, 73, 106, "Koenigsegg Agera R", 100)
             };
 
             //track bonuses init
-            List<List<int>> bonuses = new List<List<int>>();
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 100 });
-            bonuses.Add(new List<int>() { 100, 00 });
-            bonuses.Add(new List<int>() { 100, 100 });
+            List<List<double>> bonuses = new List<List<double>>();
+            bonuses.Add(new List<double>() { 1.03, 0.96 });
+            bonuses.Add(new List<double>() { 1.03, 0.96 });
+            bonuses.Add(new List<double>() { 1.03, 0.96 });
+            bonuses.Add(new List<double>() { 1.03, 0.96 });
 
             //track prizes init
             //money and exp
             List<List<int>> prizes = new List<List<int>>();
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
-            prizes.Add(new List<int>() { 100, 100 });
+            prizes.Add(new List<int>() { 3000 });
+            prizes.Add(new List<int>() { 3500 });
+            prizes.Add(new List<int>() { 3700 });
+            prizes.Add(new List<int>() { 4500 });
 
             stage.StageEnemies = enemies;
             stage.StageTracks = bonuses;

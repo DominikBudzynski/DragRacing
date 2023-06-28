@@ -16,8 +16,8 @@ namespace DragRacing.Game
         public Player()
         {
             vehiclesList = new List<IRaceable>();
-            funds = 1500;
-            currVehicle = new RaceCar(70, 10, 4, 30, 20, "Daewoo Matiz", 5000);
+            funds = 5000;
+            currVehicle = new RaceCar(70, 10, 30, 20, "Daewoo Matiz", 5000);
             vehiclesList.Add(currVehicle);
         }
 
@@ -30,7 +30,7 @@ namespace DragRacing.Game
         public int Funds
         {
             get { return funds; }
-            set { if (value > 0) funds = value; }
+            set { if (value >= 0) funds = value; }
         }
 
         public void AddCar(IRaceable car)
