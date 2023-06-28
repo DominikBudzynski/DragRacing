@@ -78,8 +78,7 @@ namespace DragRacing.States.GameStates
             {
                 parentApp.ChangeState(new AirFilterShop(parentApp));
             }
-        }
-        public override void DigitSeven() { }
+        }        
 
     }
 }

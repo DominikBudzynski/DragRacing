@@ -16,8 +16,21 @@ namespace DragRacing.States.ShopStates
         public CarDealer(Game.Game game) : base(game)
         {
             cars = new List<IRaceable>();            
-            cars.Add(new RaceCar(70, 10, 30, 20, "Lanos", 6500));
-            cars.Add(new RaceCar(80, 10, 30, 20, "Nubira", 8300));
+            cars.Add(new RaceCar(70, 10, 30, 20, "FSO Polonez", 3500));
+            cars.Add(new RaceCar(80, 10, 30, 20, "Daewoo Lanos", 4300));
+            cars.Add(new RaceCar(95, 15, 33, 30, "Renault Clio", 4800));
+            cars.Add(new RaceCar(110, 17, 36, 36, "Volkswagen Passat", 5000));
+            cars.Add(new RaceCar(125, 19, 41, 42, "Honda Civic", 5500));
+            cars.Add(new RaceCar(140, 24, 44, 50, "BMW M3", 6200));
+            cars.Add(new RaceCar(155, 29, 49, 54, "Renault Clio V6", 6500));
+            cars.Add(new OffRoadCar(150, 25, 48, 53, "Jeep Wagoneer", 5300));
+            cars.Add(new OffRoadCar(170, 28, 48, 61, "Jeep Grand Cherokee", 5800));
+            cars.Add(new OffRoadCar(190, 32, 54, 67, "Suzuki Jimny 4x4", 6200));
+            cars.Add(new OffRoadCar(200, 34, 55, 73, "Toyota Land Cruiser", 6500));
+            cars.Add(new RaceCar(215, 38, 58, 80, "Lamborghini Aventador SV", 7500));
+            cars.Add(new RaceCar(230, 41, 60, 84, "Maserati Quattroporte", 8200));
+            cars.Add(new RaceCar(245, 43, 59, 88, "Koenigsegg CCXR", 9000));
+            cars.Add(new RaceCar(270, 49, 62, 102, "Bugatti Veyron", 11000));
         }
 
         public override void UpdateGame()
