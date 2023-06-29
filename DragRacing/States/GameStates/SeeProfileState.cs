@@ -42,7 +42,7 @@ namespace DragRacing.States.GameStates
         
         public void DownArrow()
         {
-            if (highlightedElement == 1) ;
+            if (highlightedElement <= 1) ;
             else highlightedElement--;
         }
 

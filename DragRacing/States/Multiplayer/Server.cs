@@ -28,11 +28,10 @@ namespace DragRacing.States.Multiplayer
             clientBuffer = new byte[100];
         }
 
-        public string StartServer()
+        public void StartServer()
         {
             listener = new TcpListener(addr, port);
-            listener.Start();
-            return "\nServer successfully started.";
+            listener.Start();            
         }
 
         public bool ListenForClient()

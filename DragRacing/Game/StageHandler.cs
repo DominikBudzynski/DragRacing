@@ -23,12 +23,15 @@ namespace DragRacing.Game
         public bool EvaluateRace(int stage, int enemy)
         {
             double playerTime, enemyTime;
-            playerTime = player.CurrentVehicle.Accelerate(500, stages[stage - 1].StageTracks[enemy - 1]);
-            enemyTime = stages[stage - 1].StageEnemies[enemy - 1].Accelerate(500, stages[stage - 1].StageTracks[enemy - 1]);
-            if (playerTime < enemyTime) 
+            if (player.CurrentVehicle != null)
             {
-                ifLastWon = true;
-                return true; 
+                playerTime = player.CurrentVehicle.Accelerate(500, stages[stage - 1].StageTracks[enemy - 1]);
+                enemyTime = stages[stage - 1].StageEnemies[enemy - 1].Accelerate(500, stages[stage - 1].StageTracks[enemy - 1]);
+                if (playerTime < enemyTime)
+                {
+                    ifLastWon = true;
+                    return true;
+                }
             }
             return false;            
         }

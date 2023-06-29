@@ -46,7 +46,7 @@ namespace DragRacing.States.ShopStates
 
         public override void StatePrompt()
         {
-            textInterface.DealerPrompt(cars, highlightElement);           
+            textInterface.DealerPrompt(parentApp.HStage.GetPlayer, cars, highlightElement);           
         }
 
         public bool SellTo(Game.Player customer, IRaceable car)

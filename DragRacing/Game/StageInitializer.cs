@@ -84,10 +84,10 @@ namespace DragRacing.Game
 
             //track bonuses init
             List<List<double>> bonuses = new List<List<double>>();
-            bonuses.Add(new List<double>() { 0.98, 1.02 });
-            bonuses.Add(new List<double>() { 0.98, 1.02 });
-            bonuses.Add(new List<double>() { 0.98, 1.02 });
-            bonuses.Add(new List<double>() { 0.98, 1.02 });
+            bonuses.Add(new List<double>() { 0.85, 1.1 });
+            bonuses.Add(new List<double>() { 0.85, 1.1 });
+            bonuses.Add(new List<double>() { 0.85, 1.1 });
+            bonuses.Add(new List<double>() { 0.85, 1.1 });
 
             //track prizes init
             //money and exp

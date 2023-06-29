@@ -94,14 +94,15 @@ namespace DragRacing.UserInterface
                 );
         }
 
-        public void DealerPrompt(List<IRaceable> args, int highlightedElement)
+        public void DealerPrompt(Player player, List<IRaceable> args, int highlightedElement)
         {
             int i = 1;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(
                 "Welcome to Car Dealer\n" +
                 "Which one do You want to buy?\n" +
-                "Press ESC to leave\n"
+                "Your funds: " + player.Funds + 
+                "\nPress ESC to leave\n"
                 );
             Console.ForegroundColor = ConsoleColor.White;
             foreach (IRaceable raceable in args)
@@ -291,11 +292,6 @@ namespace DragRacing.UserInterface
                     "Gained cash: 0$ \nPress Return to back to the stage choice.");
             }
             Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        public void MultiplayerRacePrompt()
-        {
-            Console.WriteLine("Press 3 to evaluate race again.\nPress ESC to go back.");
-        }
+        }        
     }
 }

@@ -9,9 +9,8 @@ namespace DragRacing.Cars
 {
     class RaceCar : Car
     {
-        private double turbo;
-        private double aerodynamics;
-        public double turboBonus, aeroBonus;
+        private double turbo, aerodynamics;
+        public double turboBonus, aeroBonus;        
         Random rnd = new Random();
 
         public RaceCar() : base()
@@ -70,7 +69,8 @@ namespace DragRacing.Cars
                 " Engine power: " + EnginePower.ToString() +
                 " Grip: " + Grip.ToString() +
                 " Turbocharge: " + Turbo.ToString() +
-                " Aerodynamics: " + Aerodynamics.ToString() + "\n";
+                " Aerodynamics: " + Aerodynamics.ToString() +
+                " Prize: " + ShopPrize().ToString() + "\n";
         }
 
     }

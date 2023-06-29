@@ -14,7 +14,7 @@ namespace DragRacing.States.Multiplayer
     {
         private Server server;
         private Client client;
-        bool clientOn, serverOn, afterRace, ifWon, connected;
+        bool clientOn, serverOn, afterRace, ifWon;
 
         private enum raceRequest
         {
@@ -29,15 +29,12 @@ namespace DragRacing.States.Multiplayer
             serverOn = false;
             clientOn = false;
             afterRace = false;
-            ifWon = false;
-            connected = false;
+            ifWon = false;            
         }
 
         public override void StatePrompt()
         {
-            if (connected)
-                textInterface.MultiplayerRacePrompt();
-            else if (!afterRace)
+            if (!afterRace)
                 textInterface.MultiplayerPrompt();
             else if (afterRace)
                 textInterface.MultiplayerRaceResult(ifWon);

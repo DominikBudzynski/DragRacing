@@ -67,7 +67,9 @@ namespace DragRacing.Cars
                 " Engine power: " + EnginePower.ToString() +
                 " Grip: " + Grip.ToString() +
                 " Suspension: " + Suspension.ToString() +
-                " cos dodawtkowo: " + "\n";
+                " Air Filter: " + AirFilter.ToString() +
+                " Prize: " + ShopPrize().ToString() + "\n";
+
         }
     }
 }
