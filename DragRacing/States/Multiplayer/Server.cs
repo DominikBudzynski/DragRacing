@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DragRacing.States.Multiplayer
 {
@@ -13,7 +14,7 @@ namespace DragRacing.States.Multiplayer
         private TcpListener listener;
         private TcpClient client;
         private NetworkStream stream;
-        private byte[] clientReceiveBuffer;
+        private byte[] clientBuffer;
         private double clientResult;
         private double serverResult;
         private IPAddress addr;
@@ -21,7 +22,7 @@ namespace DragRacing.States.Multiplayer
 
         public Server()
         {
-            clientReceiveBuffer = new byte[1024];
+            clientBuffer = new byte[1024];
             listener = null;
             addr = IPAddress.Parse("127.0.0.1");
             port = 8888;
@@ -39,6 +40,7 @@ namespace DragRacing.States.Multiplayer
             client = listener.AcceptTcpClient();            
             if (client != null)
             {
+                stream = client.GetStream();
                 return true;
             }
             return false;
@@ -47,10 +49,11 @@ namespace DragRacing.States.Multiplayer
         public void ListenToClient()
         {
             stream = client.GetStream();
-            int bytesRead = stream.Read(clientReceiveBuffer, 0, clientReceiveBuffer.Length);
-            clientResult = BitConverter.ToDouble(clientReceiveBuffer);
+            stream.Read(clientBuffer, 0, clientBuffer.Length);
+            clientResult = BitConverter.ToDouble(clientBuffer);
             if (clientResult == 0.01){
-                client.Close();
+                if (client != null)
+                    client.Close();
             }
         }
 
@@ -58,14 +61,14 @@ namespace DragRacing.States.Multiplayer
         {
             if (clientResult > myResult)
             {
+                //byte byteValue = BitConverter.GetBytes(value)[0];
+                clientBuffer = BitConverter.GetBytes(false);
+                stream.Write(clientBuffer);
                 return true;
             }
+            clientBuffer = BitConverter.GetBytes(true);
+            stream.Write(clientBuffer);
             return false;
-        }
-
-        public void AnnounceWinner()
-        {
-
         }
 
         public void CloseServer()

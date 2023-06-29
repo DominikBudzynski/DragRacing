@@ -292,5 +292,10 @@ namespace DragRacing.UserInterface
             }
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public void MultiplayerRacePrompt()
+        {
+            Console.WriteLine("Press 3 to evaluate race.\nPress ESC to go back.");
+        }
     }
 }

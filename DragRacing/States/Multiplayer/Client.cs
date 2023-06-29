@@ -22,6 +22,8 @@ namespace DragRacing.States.Multiplayer
             client = new TcpClient();
             addr = IPAddress.Parse("127.0.0.1");
             port = 8888;
+            transmitBuffer = new byte[100];
+            receiveBuffer = new byte[100];
         }
 
         public void Connect()
@@ -30,16 +32,22 @@ namespace DragRacing.States.Multiplayer
             stream = client.GetStream();
         }
 
-        public string SendData(double data)
+        public string SendDouble(double data)
         {
             transmitBuffer = BitConverter.GetBytes(data);
             stream.Write(transmitBuffer, 0, transmitBuffer.Length);
             return "Data sent correctly";
         }
 
+        public bool ListenToRaceResult()
+        {
+            stream.Read(receiveBuffer, 0, receiveBuffer.Length);
+            return BitConverter.ToBoolean(receiveBuffer, 0);
+        }
+
         public void CloseClient()
         {
-            SendData(0.01);
+            SendDouble(0.01);
             client.Close();
         }
     }
