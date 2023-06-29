@@ -15,8 +15,7 @@ namespace DragRacing.States.Multiplayer
         private TcpClient client;
         private NetworkStream stream;
         private byte[] clientBuffer;
-        private double clientResult;
-        private double serverResult;
+        private double clientResult;        
         private IPAddress addr;
         private int port;
 
@@ -26,6 +25,7 @@ namespace DragRacing.States.Multiplayer
             listener = null;
             addr = IPAddress.Parse("127.0.0.1");
             port = 8888;
+            clientBuffer = new byte[100];
         }
 
         public string StartServer()
@@ -57,16 +57,22 @@ namespace DragRacing.States.Multiplayer
             }
         }
 
+        public void SendDouble(double data)
+        {
+            clientBuffer = BitConverter.GetBytes(data);
+            stream.Write(clientBuffer);
+        }
+
         public bool EvaluateMultiplayerRace(double myResult)
         {
             if (clientResult > myResult)
             {
                 //byte byteValue = BitConverter.GetBytes(value)[0];
-                clientBuffer = BitConverter.GetBytes(false);
+                clientBuffer = BitConverter.GetBytes(0.0);
                 stream.Write(clientBuffer);
                 return true;
             }
-            clientBuffer = BitConverter.GetBytes(true);
+            clientBuffer = BitConverter.GetBytes(1.0);
             stream.Write(clientBuffer);
             return false;
         }

@@ -281,8 +281,8 @@ namespace DragRacing.UserInterface
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("You has won!\n" +
-                    "\nGained cash: DO ZROBIENIA" +                    
-                    "$\nPress Return to back to the stage choice.");
+                    "IF you want to race again press Return\n" + 
+                    "$\nPress ESC to back to the stage choice.");
             }
             else
             {
@@ -295,7 +295,7 @@ namespace DragRacing.UserInterface
 
         public void MultiplayerRacePrompt()
         {
-            Console.WriteLine("Press 3 to evaluate race.\nPress ESC to go back.");
+            Console.WriteLine("Press 3 to evaluate race again.\nPress ESC to go back.");
         }
     }
 }

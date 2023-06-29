@@ -32,17 +32,16 @@ namespace DragRacing.States.Multiplayer
             stream = client.GetStream();
         }
 
-        public string SendDouble(double data)
+        public void SendDouble(double data)
         {
             transmitBuffer = BitConverter.GetBytes(data);
-            stream.Write(transmitBuffer, 0, transmitBuffer.Length);
-            return "Data sent correctly";
+            stream.Write(transmitBuffer, 0, transmitBuffer.Length);            
         }
 
-        public bool ListenToRaceResult()
+        public double ListenToRaceResult()
         {
             stream.Read(receiveBuffer, 0, receiveBuffer.Length);
-            return BitConverter.ToBoolean(receiveBuffer, 0);
+            return BitConverter.ToDouble(receiveBuffer, 0);
         }
 
         public void CloseClient()

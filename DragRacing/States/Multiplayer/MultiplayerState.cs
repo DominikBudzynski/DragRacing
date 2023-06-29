@@ -14,7 +14,12 @@ namespace DragRacing.States.Multiplayer
     {
         private Server server;
         private Client client;
-        bool clientOn, serverOn, afterRace, ifWon, connected;
+        bool clientOn, serverOn, afterRace, ifWon, raceRequest;
+
+        private enum connectionState{
+            RACE_AGAIN = 50,
+            FINISH_RACE = 51
+        }
 
         public MultiplayerState(Game.Game game) : base(game)
         {
@@ -24,12 +29,12 @@ namespace DragRacing.States.Multiplayer
             clientOn = false;
             afterRace = false;
             ifWon = false;
-            connected = false;
+            raceRequest = false;
         }
 
         public override void StatePrompt()
         {
-            if (connected)
+            if (raceRequest)
                 textInterface.MultiplayerRacePrompt();
             else if (!afterRace)
                 textInterface.MultiplayerPrompt();
@@ -38,31 +43,42 @@ namespace DragRacing.States.Multiplayer
                 
         }
 
+        public void ClientRace()
+        {
+            client.SendDouble(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
+            if (1.0 == client.ListenToRaceResult())
+            {
+                ifWon = true;
+            }
+            afterRace = true;
+        }
+
+        public void ServerRace()
+        {
+            if (server.EvaluateMultiplayerRace(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500)))
+            {
+                ifWon = true;
+            }
+            afterRace = true;
+        }
+
         public override void DigitOne()
         {
             if (!clientOn)
-            {
-                //CZY TO EXCEPTION NA PEWNO POTRZEBNE??
+            {                
                 serverOn = true;
                 try
                 {
                     if (!afterRace)
-                    {
-                        //postawic serwer
+                    {                        
                         textInterface.ServerPrompt();
                         server.StartServer();
                         textInterface.ServerResposnePrompt("Waiting for client to connect.\n");
 
                         if (server.ListenForClient())
                         {
-                            //connected = true;
-                            //odbieranie wyniku wyscigu
                             server.ListenToClient();
-                            if (server.EvaluateMultiplayerRace(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500)))
-                            {
-                                ifWon = true;
-                            }
-                            afterRace = true;
+                            ServerRace();
                         }
                     }
                 }
@@ -76,40 +92,33 @@ namespace DragRacing.States.Multiplayer
         public override void DigitTwo()
         {
             if (!serverOn)
-            {
-                //WYSWIETLIC PROMPTA ZE NP OCZEKIWANIE NA INNEGO GRACZA
-                //WYSWIETLENIE WYNIKU
+            {                
                 clientOn = true;
                 client.Connect();
-                client.SendDouble(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
-                if (client.ListenToRaceResult())
-                {
-                    ifWon = true;
-                }
-                afterRace = true;
-                //client.SendData(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
-                //Console.ReadKey();
+                ClientRace();
             }
 
         }
         public override void DigitThree()
         {
-/*            if (clientOn)
-            {                
-                client.SendDouble(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
-                //oblusyzc dane jako wynik
-                client.ListenToData();
-                textInterface.MultiplayerRaceResult(ifWon);
-            }
-            else if (serverOn)
+            if (clientOn)
             {
-                server.ListenToClient();
-                if (server.EvaluateMultiplayerRace(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500)))
+                if ((double)connectionState.RACE_AGAIN == client.ListenToRaceResult())
                 {
-                    ifWon = true;
+                    textInterface.ServerResposnePrompt("JESZCZE RAZ");
+                    raceRequest = true;
                 }
-                afterRace = true;
-            }*/
+                else if ((double)connectionState.FINISH_RACE == client.ListenToRaceResult())
+                {
+                    textInterface.ServerResposnePrompt("KONIEC");
+                }
+                ClientRace();
+            }
+            if (serverOn)
+            {
+                server.SendDouble((double)connectionState.RACE_AGAIN);
+                ServerRace();
+            }
         }
         public override void DigitFour() { }
         public override void DigitFive() { }
@@ -117,12 +126,6 @@ namespace DragRacing.States.Multiplayer
         public override void DigitSeven() { }
         public override void EnterButton()
         {
-            /*if (afterRace)
-            {
-                if (clientOn)
-                    client.SendDouble(parentApp.HStage.GetPlayer.CurrentVehicle.Accelerate(500));
-            }
-            */
             afterRace = false;
         }
         public override void ESCButton()
