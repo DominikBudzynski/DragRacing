@@ -46,7 +46,7 @@ namespace DragRacing.States.Multiplayer
             return false;
         }
 
-        public void ListenToClient()
+        public double ListenToClient()
         {
             stream = client.GetStream();
             stream.Read(clientBuffer, 0, clientBuffer.Length);
@@ -54,7 +54,9 @@ namespace DragRacing.States.Multiplayer
             if (clientResult == 0.01){
                 if (client != null)
                     client.Close();
+                return 0;
             }
+            return clientResult;
         }
 
         public void SendDouble(double data)
